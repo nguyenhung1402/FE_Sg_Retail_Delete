@@ -1,0 +1,245 @@
+// ion-list {
+//     position: relative;
+//     z-index: 20;
+//     font-size: 0.6cm;
+//     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+//     left: 0;
+//     // top: 100px;
+//     right: 0;
+//     bottom: 0px;
+//     z-index: 1;
+
+//     ion-item {
+//         --box-shadow: 0 0px 5px 5px rgba(218, 216, 216, 0.442);
+
+//         &:last-child {
+//             margin-bottom: 50px;
+//         }
+//     }
+
+//     ion-item::part(native) {
+//         // background: transparent;
+//         // border-bottom: 1px solid rgb(175, 175, 175);
+//         margin-top: 5px;
+//         margin-left: 2.5%;
+//         margin-bottom: 5px;
+//         width: 95%;
+//         background: rgba(255, 255, 255, 0.515);
+//         backdrop-filter: blur(1.5px);
+//         // --backdrop-opacity:0.5;
+//         border-radius: 10px;
+//         box-shadow: 0 0px 5px 5px rgba(230, 230, 230, 0.471);
+//         height: 60px;
+
+//         .item-inner::ng-deep {
+//             border: 0;
+//             --border: 0;
+//             --border-color: transparent
+//         }
+//     }
+
+// }
+
+// .add_btn {
+//     position: relative;
+//     width: 100%;
+//     left: 0;
+//     height: 54px;
+//     // top: 255px;
+//     margin: 0;
+//     // margin-top: 10px;
+//     padding-top: 8px;
+//     box-shadow: 0 5px 10px 5px rgba(238, 238, 238, 0.618);
+//     z-index: 5;
+
+//     ion-item::part(native) {
+
+//         // margin-top: 0px !important;
+//         // margin-left: 0px !important;
+//         // margin-bottom: 0px !important;
+//         // width: 0px !important;
+//         // background: none  !important;
+//         border-radius: 0px !important;
+//         box-shadow: none !important;
+
+//         .item-inner::ng-deep {
+//             border: 0;
+//             --border: 0;
+//         }
+//     }
+
+//     .item-inner::ng-deep {
+//         border: 0;
+//         --border: none;
+//     }
+// }
+
+
+
+// ion-content {
+//     &:nth-child(2) {
+
+
+//         .list_item {
+
+
+//             position: relative;
+//             z-index: 20;
+//             font-size: 0.6cm;
+//             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+//             left: 0;
+//             right: 0;
+//             bottom: 0px;
+//             z-index: 1;
+
+//             ion-card {
+//                 ion-avatar {
+//                     position: absolute;
+//                     width: 15%;
+//                     height: 60%;
+//                     top: 20%;
+//                     bottom: 20%;
+//                     background: rgba(243, 0, 0, 0);
+//                     border-radius: 100%;
+
+//                     ion-img {
+//                         object-fit: contain;
+//                     }
+//                 }
+//             }
+
+
+//         }
+//     }
+// }
+
+// #selectOptionWhsCode {
+//     display: contents;
+
+//     #item-left {
+//         font-size: 1em;
+//         width: 25%;
+//     }
+
+//     #item-right {
+//         width: 75%;
+
+
+//     }
+
+//     ion-item::part(native) {
+
+//         // margin-top: 0px !important;
+//         // margin-left: 0px !important;
+//         // margin-bottom: 0px !important;
+//         // width: 0px !important;
+//         // background: none  !important;
+//         border-radius: 0px !important;
+//         box-shadow: none !important;
+
+//         .item-inner::ng-deep {
+//             border: 0;
+//             --border: 0;
+//         }
+//     }
+// }
+
+// .card-iten-darkgray {
+//     background: darkgray;
+// }
+
+// .card-iten-white {
+//     background: white;
+// }
+
+// #font-size08 {
+//     font-size: 0.8em;
+//     --min-height: 55px !important;
+// }
+
+
+
+
+
+.text-center {
+    text-align: center;
+}
+
+.text-color {
+    color: blueviolet;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+#vendor-option {
+    ::ng-deep.mat-form-field-flex {
+        background: white !important;
+        padding: 0 !important;
+    }
+}
+
+.display-flex-content {
+    display: flex;
+    flex-direction: row;
+
+    .input-search {
+        padding-bottom: 15px;
+        margin-right: 7px;
+    }
+
+    .icon-search {
+        margin: 8px 15px 0px 0px
+    }
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+.color-text {
+    color: #666666;
+    font-size: 14px;
+}
+
+
+.color-text {
+    color: #666666;
+    font-size: 14px;
+}
+
+.padding-15 {
+    padding: 0px 15px;
+}
+
+.example-viewport {
+    height: 70%;
+    width: 100%;
+}
+
+.example-item {
+    height: 50px;
+}
+
+.avata{
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+ion-item{
+    margin-top: 10px;
+    &:last-child{
+        margin-bottom: 50px;
+    }
+}
+
+

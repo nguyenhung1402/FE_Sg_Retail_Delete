@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ items?.data?.itemcode }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="danger" (click)="UpdateItem(formGroup.value)"><ion-icon name="save"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form" id="vendor-form">
+
+    <ion-item>
+      <ion-label position="stacked">Mã sản phẩm</ion-label>
+      <ion-input formControlName="itemcode"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Tên sản phẩm</ion-label>
+      <ion-input formControlName="itemname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Mã vạch</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Phân loại</ion-label>
+      <ion-select #tablenumber formControlName="category"  >
+        <ion-select-option *ngFor="let item of Category?.data" [value]="item.categorycode">
+          {{item.categoryname}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Đơn giá</ion-label>
+      <ion-input formControlName="price"></ion-input>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-label position="stacked">Trạng thái</ion-label>
+      <ion-select formControlName="status">
+        <ion-select-option value="1">Hoạt động</ion-select-option>
+        <ion-select-option value="0">Không hoạt động</ion-select-option>
+      </ion-select>
+    </ion-item> -->
+
+    <div class="content" role="main">
+      <div class="form-group input_container">
+        <input class="choose" type="file" id="file" (change)="selectFile($event)" #img1>
+      </div>
+      <!-- <div class="btn_upload">
+        <button mat-raised-button (click)="handleFileInput()">Upload Image </button>
+      </div> -->
+      <ion-input hidden type="text" formControlName="image"></ion-input>
+      <div style="text-align: center;">
+        <img style="width: 50%;" src={{preview_upload1}} class="preview">
+      </div>
+      <!-- <ion-button (click)="UpdateImage(formGroup.value)">Update Images</ion-button> -->
+    </div>
+
+
+    <!-- <div class="form-element">
+			<button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Submit
+				Form</button>
+		</div> -->
+
+  </form>
+
+</ion-content>
+
+
+<div bgcolor="#000000" *ngIf="!Loading">
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+  </div>
+</div>

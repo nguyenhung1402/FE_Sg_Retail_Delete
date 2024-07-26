@@ -1,0 +1,146 @@
+
+.form {
+    // position: fixed;
+    // z-index: 2;
+    // width: 100%;
+    // top: 65px;
+    // left: 0;
+    // height: 200px;
+    // overflow-y: scroll;
+    // background: white;
+}
+
+ion-toolbar {
+    --height: 56px;
+}
+
+ion-content {
+    form {
+        // position: fixed;
+        // top: 56px;
+        // width: 100%;
+        // left: 0;
+        // z-index: 5;
+        // --border-bottom-right-radius: 15px;
+        // --border-bottom-left-radius: 15px;
+        // border-bottom-right-radius: 15px;
+        // border-bottom-left-radius: 15px;
+        // background: rgb(255, 255, 255);
+        // // box-shadow: 0 0 10px 5px rgba(225, 225, 225, 0.789);
+
+        // ion-item::part(native) {
+        //     background: transparent;
+
+        // }
+
+        // ion-button {
+        //     width: 100%;
+        //     position: fixed;
+        //     height: 40px;
+        //     top: 230px;
+        //     left: 0%;
+        //     right: 0;
+        //     z-index: 10;
+        //     margin: 0;
+        //     color: rgb(255, 123, 75);
+        // }
+
+        // ion-button::part(native) {
+        //     width: 100%;
+        //     border-radius: 0;
+        //     background: rgb(238, 237, 237);
+        //     --border-bottom-right-radius: 15px;
+        //     --border-bottom-left-radius: 15px;
+        //     border-bottom-right-radius: 15px;
+        //     border-bottom-left-radius: 15px;
+        // }
+    }
+
+    .add_btn {
+        // position: fixed;
+        // width: 100%;
+        // left: 0;
+        height: 54px;
+        // top: 270px;
+        // margin: 0;
+        margin-top: 10px;
+        box-shadow: 0 5px 10px 5px rgba(238, 238, 238, 0.618);
+        z-index: 5;
+    }
+
+    ion-list {
+        // position: fixed;
+        // top: 280px;
+        // bottom: 0;
+        // width: 100%;
+        // overflow-y: scroll;
+        // z-index: 4;
+
+        // ion-card {
+        //     ion-avatar {
+        //         position: absolute;
+        //         width: 15%;
+        //         height: 100%;
+        //         background: rgba(243, 0, 0, 0);
+        //         border-radius: 0;
+
+        //         ion-img {
+        //             object-fit: contain;
+        //         }
+        //     }
+        // }
+
+    }
+}
+
+ion-content::part(scroll) {
+    padding: 0;
+}
+
+#selectOptionWhsCode {
+    display: flex;
+    width: 100%;
+
+    #item-left {
+        // font-size: 1em;
+        // width: 25%;
+        flex: 1;
+        width: 100%;
+        padding-left: 25px;
+    }
+
+    #item-right {
+        flex: 2;
+        width: 100%;
+    }
+
+    ion-item::part(native) {
+
+        // margin-top: 0px !important;
+        // margin-left: 0px !important;
+        // margin-bottom: 0px !important;
+        // width: 0px !important;
+        // background: none  !important;
+        border-radius: 0px !important;
+        box-shadow: none !important;
+
+        .item-inner::ng-deep {
+            border: 0;
+            --border: 0;
+        }
+    }
+}
+
+#icon-saveItem::ng-deep {
+    background: transparent !important;
+    color: cornflowerblue !important;
+    position: absolute;
+    right: 0;
+}
+#PrintInvoice {
+    width: 100%;
+    position: relative;
+    top: 0px;
+    background: white;
+    z-index: 10;
+}

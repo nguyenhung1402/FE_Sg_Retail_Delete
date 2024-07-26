@@ -1,0 +1,250 @@
+[
+    {
+        "id": 1,
+        "tablename": "TB0001",
+        "tablenumber": "Bàn 1",
+        "group": "one",
+        "docdate": "30/12/2022",
+        "phone": "062 4895 0379",
+        "status": "true",
+        "remarks": "",
+        "imagesURL": "../assets/images/1.jpg",
+        "details": [
+            {
+                "id": 1,
+                "itemcode": "10000001",
+                "itemname": "Coca-Cola",
+                "category": "one",
+                "uomgroup": "-1",
+                "instock": 20000,
+                "status": "true",
+                "fee": "10,000 VND",
+                "quantity": 1,
+                "price": 10000000,
+                "imagesURL": "../assets/images/coca.jpg"
+            },
+            {
+                "id": 2,
+                "itemcode": "10000004",
+                "itemname": "Mì quảng",
+                "category": "two",
+                "uomgroup": "-1",
+                "instock": 50,
+                "status": "false",
+                "quantity": 1,
+                "fee": "25,400 VND",
+                "price": 25400,
+                "imagesURL": "../assets/images/miquang.jpg"
+            }
+        ]
+        
+    },
+    {
+        "id": 2,
+        "tablename": "TB0002",
+        "tablenumber": "Bàn 2",
+        "group": "two",
+        "docdate": "01/01/2023",
+        "phone": "0377 553 228",
+        "status": "true",
+        "remarks":  "",
+        "imagesURL": "../assets/images/2.jpg",
+        "details": [
+            {
+                "id": 3,
+                "itemcode": "10000032",
+                "itemname": "Cà Rốt",
+                "group": "three",
+                "uomgroup": "kg",
+                "instock": 0,
+                "status": "false",
+                "quantity": 1,
+                "fee": "35,400 VND",
+                "price": 35400,
+                "imagesURL": "../assets/images/carot.jpg"
+            },
+            {
+                "id": 4,
+                "itemcode": "10000352",
+                "itemname": "Cải bẹ xanh",
+                "category": "two",
+                "uomgroup": "kg",
+                "instock": 98000,
+                "status": "true",
+                "quantity": 1,
+                "fee": "25,400 VND",
+                "price": 25400,
+                "imagesURL": "../assets/images/caixanh.jpg"
+            },
+            {
+                "id": 5,
+                "itemcode": "10000121",
+                "itemname": "Hải sản",
+                "category": "one",
+                "uomgroup": "kg",
+                "instock": 10,
+                "status": "false",
+                "quantity": 1,
+                "fee": "15,400 VND",
+                "price": 15400,
+                "imagesURL": "../assets/images/tom.jpg"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "tablename": "TB0003",
+        "tablenumber": "Bàn 3",
+        "group": "one",
+        "docdate": "31/12/2022",
+        "phone": "095 1237 2134",
+        "status": "true",
+        "remarks":  "",
+        "imagesURL": "../assets/images/3.jpg",
+        "details": [
+            {
+                "id": 1,
+                "itemcode": "10000001",
+                "itemname": "Coca-Cola",
+                "category": "one",
+                "uomgroup": "-1",
+                "instock": 20000,
+                "status": "true",
+                "fee": "10,000 VND",
+                "quantity": 1,
+                "price": 10000000,
+                "imagesURL": "../assets/images/coca.jpg"
+            },
+            {
+                "id": 2,
+                "itemcode": "10000004",
+                "itemname": "Mì quảng",
+                "category": "two",
+                "uomgroup": "-1",
+                "instock": 50,
+                "status": "false",
+                "quantity": 1,
+                "fee": "25,400 VND",
+                "price": 25400,
+                "imagesURL": "../assets/images/miquang.jpg"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "tablename": "TB0004",
+        "tablenumber": "Bàn 4",
+        "group": "three",
+        "docdate": "11/01/2023",
+        "phone": "0917 912 982",
+        "status": "true",
+        "remarks":  "",
+        "imagesURL": "../assets/images/4.jpg",
+        "details": [
+            {
+                "id": 1,
+                "itemcode": "10000001",
+                "itemname": "Coca-Cola",
+                "category": "one",
+                "uomgroup": "-1",
+                "instock": 20000,
+                "status": "true",
+                "fee": "10,000 VND",
+                "quantity": 1,
+                "price": 10000000,
+                "imagesURL": "../assets/images/coca.jpg"
+            },
+            {
+                "id": 2,
+                "itemcode": "10000004",
+                "itemname": "Mì quảng",
+                "category": "two",
+                "uomgroup": "-1",
+                "instock": 50,
+                "status": "false",
+                "quantity": 1,
+                "fee": "25,400 VND",
+                "price": 25400,
+                "imagesURL": "../assets/images/miquang.jpg"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "tablename": "TB0005",
+        "tablenumber": "Bàn 5",
+        "group": "one",
+        "docdate": "03/01/2023",
+        "phone": "032 8363 7472",
+        "status": "true",
+        "remarks":  "",
+        "imagesURL": "../assets/images/5.jpg",
+        "details": [
+            {
+                "id": 1,
+                "itemcode": "10000001",
+                "itemname": "Coca-Cola",
+                "category": "one",
+                "uomgroup": "-1",
+                "instock": 20000,
+                "status": "true",
+                "fee": "10,000 VND",
+                "quantity": 1,
+                "price": 10000000,
+                "imagesURL": "../assets/images/coca.jpg"
+            },
+            {
+                "id": 2,
+                "itemcode": "10000004",
+                "itemname": "Mì quảng",
+                "category": "two",
+                "uomgroup": "-1",
+                "instock": 50,
+                "status": "false",
+                "quantity": 1,
+                "fee": "25,400 VND",
+                "price": 25400,
+                "imagesURL": "../assets/images/miquang.jpg"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "tablename": "TB0006",
+        "tablenumber": "Bàn 6",
+        "group": "two",
+        "docdate": "23/02/2023",
+        "phone": "091 4772 9575",
+        "status": "true",
+        "remarks":  "",
+        "imagesURL": "../assets/images/6.jpg",
+        "details": [
+            {
+                "id": 1,
+                "itemcode": "10000001",
+                "itemname": "Coca-Cola",
+                "category": "one",
+                "uomgroup": "-1",
+                "instock": 20000,
+                "status": "true",
+                "fee": "10,000 VND",
+                "quantity": 1,
+                "price": 10000000,
+                "imagesURL": "../assets/images/coca.jpg"
+            },
+            {
+                "id": 2,
+                "itemcode": "10000004",
+                "itemname": "Mì quảng",
+                "category": "two",
+                "uomgroup": "-1",
+                "instock": 50,
+                "status": "false",
+                "quantity": 1,
+                "fee": "25,400 VND",
+                "price": 25400,
+                "imagesURL": "../assets/images/miquang.jpg"
+            }
+        ]
+    }
+]

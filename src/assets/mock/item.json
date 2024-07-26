@@ -1,0 +1,67 @@
+[
+    {
+        "id": 1,
+        "itemcode": "10000001",
+        "itemname": "Coca-Cola",
+        "category": "one",
+        "uomgroup": "-1",
+        "instock": 20000,
+        "status": "true",
+        "fee": "10,000 VND",
+        "quantity": 1,
+        "price": 10000000,
+        "imagesURL": "../assets/images/coca.jpg"
+    },
+    {
+        "id": 2,
+        "itemcode": "10000004",
+        "itemname": "Mì quảng",
+        "category": "two",
+        "uomgroup": "-1",
+        "instock": 50,
+        "status": "false",
+        "quantity": 1,
+        "fee": "25,400 VND",
+        "price": 25400,
+        "imagesURL": "../assets/images/miquang.jpg"
+    },
+    {
+        "id": 3,
+        "itemcode": "10000032",
+        "itemname": "Cà Rốt",
+        "group": "three",
+        "uomgroup": "kg",
+        "instock": 0,
+        "status": "false",
+        "quantity": 1,
+        "fee": "35,400 VND",
+        "price": 35400,
+        "imagesURL": "../assets/images/carot.jpg"
+    },
+    {
+        "id": 4,
+        "itemcode": "10000352",
+        "itemname": "Cải bẹ xanh",
+        "category": "two",
+        "uomgroup": "kg",
+        "instock": 98000,
+        "status": "true",
+        "quantity": 1,
+        "fee": "25,400 VND",
+        "price": 25400,
+        "imagesURL": "../assets/images/caixanh.jpg"
+    },
+    {
+        "id": 5,
+        "itemcode": "10000121",
+        "itemname": "Hải sản",
+        "category": "one",
+        "uomgroup": "kg",
+        "instock": 10,
+        "status": "false",
+        "quantity": 1,
+        "fee": "15,400 VND",
+        "price": 15400,
+        "imagesURL": "../assets/images/tom.jpg"
+    }
+]

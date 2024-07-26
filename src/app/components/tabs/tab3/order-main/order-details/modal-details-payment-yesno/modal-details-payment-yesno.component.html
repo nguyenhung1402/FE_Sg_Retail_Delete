@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;"></ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm('TT')">Thanh toán</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm('DRAF')">Lưu nháp</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div>
+    <h2 mat-dialog-title style="text-align: center;">Thông báo</h2>
+    <mat-dialog-content class="mat-typography" tyle="text-align: center;">
+
+      <p style="text-align: center;">Bạn vui lòng chọn phương thức thực hiện !</p>
+
+    </mat-dialog-content>
+  </div>
+</ion-content>

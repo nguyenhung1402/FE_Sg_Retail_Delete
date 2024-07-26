@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "whscode": "W001",
+        "whsname": "Kho lạnh",
+        "status": "true"
+    },
+    {
+        "id": 2,
+        "whscode": "W002",
+        "whsname": "Kho tươi sống",
+        "status": "false"
+    },
+    {
+        "id": 3,
+        "whscode": "W003",
+        "whsname": "Kho thực phẩm",
+        "status": "true"
+    }
+]

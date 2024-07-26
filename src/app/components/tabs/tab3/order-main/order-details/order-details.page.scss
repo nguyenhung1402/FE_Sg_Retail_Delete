@@ -1,0 +1,228 @@
+// ion-toolbar {
+//     --height: 56px;
+// }
+
+// ion-content {
+//     .add_btn {
+//         height: 54px;
+//         margin-top: 10px;
+//         box-shadow: 0 5px 10px 5px rgba(238, 238, 238, 0.618);
+//         z-index: 5;
+//     }
+// }
+
+// ion-content::part(scroll) {
+//     padding: 0;
+// }
+
+// #selectOptionWhsCode {
+//     display: flex;
+//     width: 100%;
+
+//     #item-left {
+//         flex: 1;
+//         width: 100%;
+//         padding-left: 17px;
+//     }
+
+//     #item-right {
+//         flex: 2;
+//         width: 100%;
+//     }
+
+//     ion-item::part(native) {
+//         border-radius: 0px !important;
+//         box-shadow: none !important;
+
+//         .item-inner::ng-deep {
+//             border: 0;
+//             --border: 0;
+//         }
+//     }
+// }
+
+// #icon-saveItem::ng-deep {
+//     background: transparent !important;
+//     color: cornflowerblue !important;
+//     position: absolute;
+//     right: 0;
+// }
+
+// #PrintInvoice {
+//     width: 100%;
+//     position: relative;
+//     top: 0px;
+//     background: white;
+//     z-index: 10;
+// }
+
+// .orderDetails-v {
+//     display: flex;
+//     flex-direction: row;
+    
+//     background:transparent;font-size: smaller; font-weight: 500;
+
+//     .orderDetails-v1 {
+//         flex: 1;
+//         margin: auto;
+//         text-align: -webkit-center;
+
+//         ion-avatar {
+//             height: 100%;
+//             position: relative;
+//             bottom: 0;
+//             ion-img {
+//                 width: 100%;
+//                 height: 50%;
+//             }
+//         }
+//     }
+
+//     .orderDetails-v2 {
+//         flex: 3;
+//         padding-left: 20px;
+//         .orderDetails-v2-2-1 {
+//             padding-top: 0px;
+//             width: 110px;
+//         }
+//     }
+// }
+
+// ::ng-deep.sc-ion-input-ios-h {
+//     color: black !important;
+//     -webkit-text-fill-color: rgb(0, 0, 0);
+// }
+
+// // ::ng-deep.sc-ion-input-ios-h {
+// //     color: black !important;
+// // }
+
+// .example-viewport{
+//     height: -webkit-fill-available;
+// }
+
+
+
+::ng-deep.mat-mdc-form-field-has-icon-suffix .mat-mdc-text-field-wrapper {
+    background: white !important;
+}
+
+::ng-deep.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background: white !important;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.order-add-v1 {
+    display: flex;
+    flex-direction: row;
+
+    .order-add-v1-1 {
+        flex: 2;
+        width: 100%;
+    }
+
+    .order-add-v1-2 {
+        flex: 1;
+        width: 100%;
+        text-align-last: right;
+        align-self: center;
+
+        .order-add-v1-2-1 {
+            color: blue;
+        }
+
+        .order-add-v1-2-2 {
+            color: red;
+        }
+    }
+
+}
+
+.order-add-header-line {
+    display: flex;
+    flex-direction: row;
+    background: darkgrey;
+
+    .v1 {
+        flex: 1;
+        margin: 0px !important;
+        text-align: center;
+    }
+
+    .v2 {
+        flex: 1;
+        margin: 0px !important;
+        text-align: center;
+    }
+}
+
+.order-add-line {
+    display: flex;
+    flex-wrap: wrap;
+
+    .example-card {
+        width: 48%;
+        // max-width: 400px;
+        margin: 5px !important;
+        flex-wrap: wrap;
+        flex: 48%;
+        font-size: 1rem;
+        justify-content: flex-end;
+        // padding: 10px;
+
+        .v1 {
+            width: 100%;
+            height: 100px;
+            object-fit: contain;
+            margin-top: 20px;
+        }
+
+        .v2 {
+            display: block;
+            color: black;
+            font-weight: bold;
+
+            // z-index: 1;
+            p {
+                width: 100%;
+                margin: 0px !important;
+            }
+
+            .v2-1 {
+                text-align: right;
+            }
+
+            .v2-2 {
+                display: flex;
+                padding: 5px 0px;
+
+                .v2-2-1 {
+                    flex: 1;
+                    width: 100%;
+                    text-align: left;
+                }
+
+                .v2-2-2 {
+                    flex: 2;
+                    width: 100%;
+                    text-align: right;
+                }
+
+                .v2-2-3 {
+                    flex: 2;
+                    width: 100%;
+                    text-align: right;
+                    padding: 0 !important;
+                }
+            }
+        }
+    }
+
+    .example-header-image {
+        background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+        background-size: cover;
+    }
+}

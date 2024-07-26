@@ -1,0 +1,67 @@
+[
+    {
+        "id": 1,
+        "itemcode": "20000001",
+        "itemname": "Coca-Cola",
+        "category": "one",
+        "uomgroup": "-1",
+        "instock": 200,
+        "status": "true",
+        "fee": "15,000 VND",
+        "quantity": 1,
+        "price": 15000,
+        "imagesURL": "../assets/images/coca.jpg"
+    },
+    {
+        "id": 2,
+        "itemcode": "20000002",
+        "itemname": "Soda dâu",
+        "category": "two",
+        "uomgroup": "-1",
+        "instock": 50,
+        "status": "false",
+        "quantity": 1,
+        "fee": "25,000 VND",
+        "price": 25000,
+        "imagesURL": "../assets/images/soda.jpg"
+    },
+    {
+        "id": 3,
+        "itemcode": "2000003",
+        "itemname": "Trà sữa việt quất",
+        "group": "three",
+        "uomgroup": "kg",
+        "instock": 1,
+        "status": "false",
+        "quantity": 1,
+        "fee": "30,000 VND",
+        "price": 30000,
+        "imagesURL": "../assets/images/trasua.jpg"
+    },
+    {
+        "id": 4,
+        "itemcode": "2000004",
+        "itemname": "Nước suối",
+        "category": "two",
+        "uomgroup": "kg",
+        "instock": 98000,
+        "status": "true",
+        "quantity": 1,
+        "fee": "10,000 VND",
+        "price": 10000,
+        "imagesURL": "../assets/images/nuocsuoi.jfif"
+    },
+    {
+        "id": 5,
+        "itemcode": "2000005",
+        "itemname": "Trà ôlong",
+        "category": "one",
+        "uomgroup": "kg",
+        "instock": 10,
+        "status": "false",
+        "quantity": 1,
+        "fee": "15,000 VND",
+        "price": 15000,
+        "imagesURL": "../assets/images/traolong.jpg"
+    }
+]

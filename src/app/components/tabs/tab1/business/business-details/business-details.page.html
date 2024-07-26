@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ items?.data?.cardcode }}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-button color="danger" (click)="UpdateItem(formGroup.value)"><ion-icon
+            name="pencil"></ion-icon></ion-button>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form" id="vendor-form">
+
+    <ion-item>
+      <ion-label position="stacked">Mã khách hàng</ion-label>
+      <ion-input formControlName="cardcode"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Tên khách hàng</ion-label>
+      <ion-input formControlName="cardname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Nhóm khách hàng</ion-label>
+      <ion-select formControlName="group">
+        <ion-select-option value="V">Nhà cung cấp</ion-select-option>
+        <ion-select-option value="C">Khách hàng</ion-select-option>
+        <!-- <ion-select-option value="three">Khách mới</ion-select-option> -->
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Địa chỉ</ion-label>
+      <ion-input formControlName="address"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Số điện thoại</ion-label>
+      <ion-input formControlName="phone"></ion-input>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-label position="stacked">Trạng thái</ion-label>
+      <ion-select formControlName="status">
+        <ion-select-option value="true">Hoạt động</ion-select-option>
+        <ion-select-option value="false">Chưa hoạt động</ion-select-option>
+      </ion-select>
+    </ion-item> -->
+
+
+
+    <!-- <div class="form-element">
+			<button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Submit
+				Form</button>
+		</div> -->
+
+  </form>
+
+</ion-content>
+<!-- 
+
+<ion-modal trigger="open-modal-bp" (willDismiss)="onWillDismiss($event)">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()">Huỷ</ion-button>
+        </ion-buttons>
+        <ion-title style="text-align:center">Sửa thông tin khách hàng</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="confirm(formGroup.value)" [strong]="true">Xác nhận</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <form [formGroup]="formGroup" class="form" id="vendor-form">
+        <ion-item>
+          <ion-label position="stacked">Mã khách hàng</ion-label>
+          <ion-input formControlName="cardcode"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Tên khách hàng</ion-label>
+          <ion-input formControlName="cardname"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Nhóm khách hàng</ion-label>
+          <ion-select formControlName="status">
+            <ion-select-option value="one">Khách thân thiết</ion-select-option>
+            <ion-select-option value="two">Khách lẻ</ion-select-option>
+            <ion-select-option value="three">Khách mới</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Địa chỉ</ion-label>
+          <ion-input formControlName="address"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Số điện thoại</ion-label>
+          <ion-input formControlName="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Trạng thái</ion-label>
+          <ion-select formControlName="status">
+            <ion-select-option value="true">Hoạt động</ion-select-option>
+            <ion-select-option value="false">Chưa hoạt động</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </form>
+    </ion-content>
+  </ng-template>
+</ion-modal> -->
+<div bgcolor="#000000" *ngIf="!Loading">
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+  </div>
+</div>

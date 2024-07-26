@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">Cài đặt</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm(formGroup.value)">Xác nhận</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div>
+    <mat-tab-group>
+      <mat-tab label="Cài đặt">
+        <form [formGroup]="formGroup">
+          <mat-form-field appearance="fill" class="w-100" id="vendor-option">
+            <mat-label>Tên công ty</mat-label>
+            <input matInput formControlName="company">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-100" id="vendor-option">
+            <mat-label>Địa chỉ</mat-label>
+            <input matInput formControlName="address">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-100" id="vendor-option">
+            <mat-label>Số điện thoại</mat-label>
+            <input matInput formControlName="phone">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-100" id="vendor-option">
+            <mat-label>Mã số thuế</mat-label>
+            <input matInput formControlName="masothue">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-100" id="vendor-option">
+            <mat-label>IP</mat-label>
+            <input matInput formControlName="ip_connection">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-100" id="vendor-option">
+            <mat-label>Database</mat-label>
+            <input matInput formControlName="database">
+          </mat-form-field>
+
+          <div class="content" role="main">
+            <div class="form-group input_container">
+              <input placeholder="." type="file" id="file" (change)="selectFile($event)" #img1>
+              <!-- <input type="file" id="file" (change)="handleFileInput($event)"> -->
+            </div>
+            <div class="btn_upload">
+              <button mat-raised-button (click)="handleFileInput()">Upload Image </button>
+            </div>
+            <div>
+              <img alt="" src={{preview_upload1}} class="preview">
+            </div>
+          </div>
+        </form>
+      </mat-tab>
+      <mat-tab label="Tìm kiếm máy in">
+        <div style="width: 100%;">
+          <div style="width: 100%;text-align: right;">
+            <ion-button (click)="Scan()" slot="end" style="width: 25%;">
+              <ion-icon name="Bluetooth"></ion-icon>
+            </ion-button>
+          </div>
+            <ion-list>
+              <ion-card-content ion-item *ngFor="let device of devices" (click)="connectPrint(device)">
+                <!-- <ng-container *ngIf="device.name"> -->
+                  <p>{{device.name || 'Không xác định'}}</p>
+                  <p>{{device.id}}</p>
+                  <p>RSSI: {{device.rssi}}</p>
+                <!-- </ng-container> -->
+              </ion-card-content>
+            </ion-list>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+
+  </div>
+</ion-content>
+
+
+<div bgcolor="#000000" *ngIf="!Loading">
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+  </div>
+</div>

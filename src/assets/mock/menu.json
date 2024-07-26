@@ -1,0 +1,59 @@
+[
+    {
+        "ID": 1,
+        "title": "Sản phẩm",
+        "icon": "person",
+        "position": 1,
+        "rule": "1",
+        "url": "centers/tabs/tab1/items",
+        "img": "icon_items.jpg"
+    },
+    {
+        "ID": 2,
+        "title": "Khách hàng",
+        "icon": "apps",
+        "position": 2,
+        "url": "centers/tabs/tab1/business",
+        "img": "icon_bp.jpg"
+    },
+    {
+        "ID": 3,
+        "title": "Kho",
+        "icon": "apps",
+        "position": 3,
+        "url": "centers/tabs/tab1/warehouse",
+        "img": "kho.png"
+    },
+    {
+        "ID": 4,
+        "title": "Location",
+        "icon": "apps",
+        "position": 4,
+        "url": "centers/tabs/tab1/bin",
+        "img": "bin.png"
+    },
+    {
+        "ID": 5,
+        "title": "Nhập kho",
+        "icon": "apps",
+        "position": 5,
+        "url": "centers/tabs/tab1/receipt",
+        "img": "receipt.png"
+    },
+    {
+        "ID": 6,
+        "title": "Xuất kho",
+        "icon": "apps",
+        "position": 6,
+        "url": "centers/tabs/tab1/issue",
+        "img": "issue.png"
+    },
+    {
+        "ID": 7,
+        "title": "Báo cáo",
+        "icon": "map",
+        "position": 7,
+        "url": "centers/tabs/tab1/charts",
+        "img": "reports.jpg"
+    }
+]

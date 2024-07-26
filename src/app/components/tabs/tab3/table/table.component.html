@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button color="medium" (click)="cancel()">Hủy</ion-button>
+      </ion-buttons>
+      <ion-title style="text-align:center">Thêm mới</ion-title>
+      <ion-buttons slot="end">
+        <ion-button  (click)="confirmTable(formGroup.value)">Xác nhận</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <form [formGroup]="formGroup"  class="form" id="vendor-form">
+      <ion-item>
+        <ion-label position="stacked">Tên</ion-label>
+        <ion-input formControlName="remark"></ion-input>
+      </ion-item>
+
+    </form>
+  
+  </ion-content>

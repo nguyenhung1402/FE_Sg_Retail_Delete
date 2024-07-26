@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Báo cáo</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <!-- <ion-card>
+      <ion-card-content>
+        <div id="bar-chart-container">
+          <canvas #myChart style="position: relative; height:20vh; width:40vw"> </canvas>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content>
+        <div id="bar-chart-container">
+          <canvas #barCanvas style="position: relative; height:20vh; width:40vw"> </canvas>
+        </div>
+      </ion-card-content>
+    </ion-card> -->
+    <!-- <ion-item style="width: 100%;" (click)="openReport()">
+      <ion-icon style="color: orange;" name="document-text"></ion-icon>&nbsp;
+      <span>Báo cáo TOP doanh thu</span>
+    </ion-item> -->
+    <ion-item (click)="openItem(1)" id="line-charts">
+      <ion-icon style="color: orange;" name="document-text"></ion-icon>&nbsp;
+      <span style="color: cornflowerblue;">Báo cáo doanh thu theo ngày</span>
+    </ion-item>
+    <ion-item (click)="openItem(2)" id="line-charts">
+      <ion-icon style="color: orange;" name="document-text"></ion-icon>&nbsp;
+      <span style="color: cornflowerblue;">Báo cáo doanh thu theo tháng</span>
+    </ion-item>
+    <ion-item (click)="openItem(3)" id="line-charts">
+      <ion-icon style="color: orange;" name="document-text"></ion-icon>&nbsp;
+      <span style="color: cornflowerblue;">Báo cáo doanh thu theo năm</span>
+    </ion-item>
+    <ion-item (click)="openItem(4)" id="line-charts">
+      <ion-icon style="color: orange;" name="document-text"></ion-icon>&nbsp;
+      <span style="color: cornflowerblue;">Báo cáo nhập xuất tồn</span>
+    </ion-item>
+    <ion-item (click)="openItem(5)" id="line-charts">
+      <ion-icon style="color: orange;" name="document-text"></ion-icon>&nbsp;
+      <span style="color: cornflowerblue;">Báo cáo tổng hợp nhập kho</span>
+    </ion-item>
+    <ion-item (click)="openItem(6)" id="line-charts">
+      <ion-icon style="color: orange;" name="document-text"></ion-icon>&nbsp;
+      <span style="color: cornflowerblue;">Báo cáo tổng hợp xuất kho</span>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<!-- <ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/centers/tabs/tab1"></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{headerMenu }}</ion-title>
+
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-content [fullscreen]="true">
+    <div class="ion-padding">
+      <div id="container">
+        <ion-item appearance="fill" class="sal_x1" id="vendor-option">
+          <ion-label>{{'Month' }}</ion-label>
+          <ion-select [value]="defaultValueMonth"
+            (selectionChange)="loaddataChangeSelectOption(months.value,years.value)" #months>
+            <ion-select-option *ngFor="let m of month" [value]="m.value" style="color:black">
+              {{m.viewValue}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div style="width: 10px;"></div>
+        <ion-item appearance="fill" class="sal_x1" id="vendor-option">
+          <ion-label>{{'Year' }}</ion-label>
+          <ion-select [value]="defaultValueYear"
+            (selectionChange)="loaddataChangeSelectOption(months.value,years.value)" #years>
+            <ion-select-option *ngFor="let y of year?.data" [value]="y.name2">
+              {{y.name1 }} {{y.name2}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+
+    </div>
+
+
+  </ion-content>
+</ion-content> -->

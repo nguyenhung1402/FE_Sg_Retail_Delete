@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Khách hàng</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="danger" (click)="openAddItem()">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-button style="--background: transparent; --box-shadow:none" slot="end" (click)="loadData()">
+      <ion-icon color="primary" name="refresh"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <cdk-virtual-scroll-viewport itemSize="0" class="example-viewport">
+  <ion-searchbar placeholder="Tìm kiếm..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
+  <ion-list lines="none">
+    <ion-item button *ngFor="let item of Business?.data | filter:filterTerm" detail="true" (click)="openItem(item.ID)">
+      <ion-avatar class="avata" slot="start">
+        <img src="../assets/images/bp-mater.jpg" />
+      </ion-avatar>
+      <ion-label class="ion-text-wrap">
+        <ion-row style="color: cornflowerblue;">
+          {{ item.cardname }}
+        </ion-row>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</cdk-virtual-scroll-viewport>
+</ion-content>
+
+<div bgcolor="#000000" *ngIf="!Loading">
+	<div id="loader-wrapper">
+		<div id="loader"></div>
+	</div>
+</div>

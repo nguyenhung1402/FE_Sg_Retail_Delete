@@ -1,0 +1,48 @@
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="" (click)="cancel()"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Báo cáo TOP doanh thu</ion-title>
+      <!-- <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons> -->
+      <!-- <ion-icon slot="primary" name="add-outline"></ion-icon> -->
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-content [fullscreen]="true">
+    <div class="ion-padding">
+      <div id="container">
+        <ion-item appearance="fill" class="sal_x1" id="vendor-option">
+          <ion-label>{{'Tháng' }}</ion-label>
+          <ion-select interface="popover" [value]="defaultValueMonth"
+            (ionChange)="loaddataChangeSelectOption(months.value,years.value)" #months>
+            <ion-select-option *ngFor="let m of month" [value]="m.value" style="color:black">
+              {{m.viewValue}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div style="width: 10px;"></div>
+        <ion-item appearance="fill" class="sal_x1" id="vendor-option">
+          <ion-label>{{'Name' }}</ion-label>
+          <ion-select [value]="defaultValueYear"
+            (ionChange)="loaddataChangeSelectOption(months.value,years.value)" #years>
+            <ion-select-option *ngFor="let y of year?.data" [value]="y.name2">
+              {{y.name1 }} {{y.name2}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+      <div id="bar-chart-container">
+        <canvas #myChart style="position: relative; height:20vh; width:40vw"> </canvas>
+      </div>
+    </div>
+
+    <!-- <div id="bar-chart-container">
+      <canvas #myChart style="position: relative; height:20vh; width:40vw"> </canvas>
+    </div> -->
+  </ion-content>
+</ion-content>

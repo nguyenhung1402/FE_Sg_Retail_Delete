@@ -1,0 +1,299 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-title>Header</ion-title>
+      <ion-button (click)="openModal()"  >
+        <ion-icon style="color: rgb(255, 84, 32); font-weight: bold;" name="add-outline"></ion-icon>
+      </ion-button> -->
+    <img alt="" (click)="openItem()" src="../assets/images/POS.png">
+    <ion-button slot="end" (click)="openModal()" style="float:right; --background: transparent;">
+      <ion-icon style="color: rgb(255, 84, 32); font-weight: bold;" name="add-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+
+</ion-header>
+<ion-content>
+  <img alt="" src="../assets/images/FTI-FULL.png">
+  <ion-list style="overflow-y: scroll; background: transparent; margin-top: 60px;">
+
+    <mat-card class="example-card" *ngFor="let item of pos_details">
+      <ion-item>
+        <ion-col style="width:100%; background: rgba(255, 0, 0, 0);">
+          <div class="card-div-v1">
+            <ion-avatar class="card-div-v1-2">
+              <ion-img src={{BASE_SERVERS+item.image}}></ion-img>
+            </ion-avatar>
+            <div class="card-div-v1-1">
+              <ion-row style="width:100%;" class="card-div-v1-1-1">
+                <!-- <ion-col style="width:50%">{{ item.itemname }}</ion-col> -->
+                <ion-col style="width:50%; text-align: end; ">{{ item.itemname }}</ion-col>
+              </ion-row>
+              <ion-row class="card-div-v1-1-2">
+                <ion-col>
+                  <p class="card-div-v1-1-2-1" style="width:40%; display:inline; text-align: right; font-size: 0.45cm;">
+                    Số lượng:</p>
+                  <ion-input class="card-div-v1-1-2-2"
+                    style="width: 60%; float: left; background: rgba(135, 91, 91, 0); height: 20px;--padding:0;"
+                    type="number" value={{item?.quantity}} #quantity id="quantity"
+                    (change)="total($event,quantity.value,item.itemcode)"></ion-input>
+                </ion-col>
+                <!-- <ion-col class="card-div-v1-1-2-2" style="text-align: end;">{{ item?.price | currency: 'VND ': 'symbol':'1.0'}}</ion-col> -->
+                <!-- <ion-row style="width:90%;">
+                    <ion-col style="width:50%">Tồn</ion-col>
+                    <ion-col style="width:50%; text-align: end; font-size: 1em;">{{ item.ton }}</ion-col>
+                  </ion-row> -->
+              </ion-row>
+              <ion-row class="card-div-v1-1-2">
+                <p class="card-div-v1-1-2-1" style="width:40%; display:inline; float: left; font-size: 0.45cm;">
+                  Giá:</p>
+                <ion-col class="card-div-v1-1-2-2" style="text-align: end;">{{ item?.price | currency: 'VND ':
+                  'symbol':'1.0'}}</ion-col>
+              </ion-row>
+            </div>
+          </div>
+
+          <ion-row style="height: 60px;">
+            <ion-list id="selectOptionWhsCode">
+              <ion-col id="item-left" style="width:25%; padding-top: 16px;">
+                <p style="float: left;">Kho:</p>
+              </ion-col>
+              <ion-item id="item-right">
+                <ion-select placeholder="Kho" style="width: 100%;" (ionChange)="changeWhsCode($event, item.itemcode)">
+                  <ion-select-option *ngFor="let item of warehouse?.data" [value]="item.whscode">
+                    {{item.whsname}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <ion-col style="width:25%; text-align: end; font-size: 1em; padding-top: 15px;font-weight: bold;">{{
+                item.ton }}</ion-col>
+            </ion-list>
+          </ion-row>
+        </ion-col>
+      </ion-item>
+    </mat-card>
+
+
+    <!-- <ion-label *ngIf="pos_details.length > 0" style="background: transparent;">
+      <ion-item *ngFor="let item of pos_details">
+        <ion-avatar>
+          <ion-img src={{BASE_SERVERS+item.image}}></ion-img>
+        </ion-avatar>
+        <ion-col style="width:100%; background: rgba(255, 0, 0, 0);">
+          <ion-row style="width:100%;">
+            <ion-col style="width:50%">{{ item.itemname }}</ion-col>
+            <ion-col style="width:50%; text-align: end; ">{{ item.itemcode }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <p style="width:60%; display:inline; float: left; font-size: 0.45cm;">Số lượng:</p>
+              <ion-input style="width: 35%; float: left; background: rgba(135, 91, 91, 0); height: 20px;--padding:0;"
+                type="number" value={{item?.quantity}} #quantity id="quantity"
+                (change)="total($event,quantity.value,item.itemcode)"></ion-input>
+            </ion-col>
+            <ion-col style="text-align: end;">{{ item?.price | currency: 'VND ': 'symbol':'1.0'}}</ion-col>
+            <ion-row style="width:90%;">
+              <ion-col style="width:50%">Tồn</ion-col>
+              <ion-col style="width:50%; text-align: end; font-size: 1em;">{{ item.ton }}</ion-col>
+            </ion-row>
+          </ion-row>
+          <ion-row style="height: 60px;">
+            <ion-list id="selectOptionWhsCode">
+              <ion-col id="item-left" style="width:25%; padding-top: 16px;">
+                <p style="
+                float: left;
+                ">Kho:</p>
+              </ion-col>
+              <ion-item id="item-right">
+                <ion-select placeholder="Kho" style="width: 100%;" (ionChange)="changeWhsCode($event, item.itemcode)">
+                  <ion-select-option *ngFor="let item of warehouse?.data" [value]="item.whscode">{{item.whscode}} --
+                    {{item.whsname}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+          </ion-row>
+        </ion-col>
+      </ion-item>
+    </ion-label> -->
+  </ion-list>
+
+
+  <!-- <ion-button (click)="testPrint()"
+  style="position: fixed; bottom: 0; box-shadow: 0 -10px 10px 5px rgba(228, 227, 227, 0.192);--color: black"
+  expand="block" >
+  Thanh toán Hem Linh Chi
+</ion-button> -->
+
+  <ion-button id="open-modal-pos"
+    style="position: fixed; bottom: 0; box-shadow: 0 -10px 10px 5px rgba(228, 227, 227, 0.192);--color: black"
+    expand="block">
+    Thanh toán
+  </ion-button>
+
+
+
+  <ion-modal class="payment" #modal trigger="open-modal-pos" style="--height: 400px !important;">
+    <ng-template>
+      <ion-content>
+        <ion-toolbar style="text-align: center;">
+          <ion-title style="color: black;">Thanh toán</ion-title>
+          <ion-buttons slot="start">
+            <ion-button style="margin-left:15px; color: rgb(194, 194, 194); font-weight: bold;--background: transparent"
+              (click)="modal.dismiss()">Đóng</ion-button>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <i style="margin-right:15px; color: rgb(33, 174, 255); font-weight: bold; --background: transparent">Tải
+              lại</i>
+          </ion-buttons>
+        </ion-toolbar>
+
+        <ion-label>
+          <ion-gird>
+            <ion-col style="margin-left:-3px">
+
+              <!-- <ion-row>
+                <ion-col>Mã hoá đơn</ion-col>
+                <ion-input #poscode id="poscode"
+                  style="text-align: end; width: 80%; float: right; background: rgba(255, 0, 0, 0); height: 17px;--padding:0"></ion-input>
+              </ion-row> -->
+
+
+              <ion-row style="height: 29px;">
+                <ion-col style="width:100%;">Tên</ion-col>
+                <ion-select #cardname id="cardname" value="">
+
+                  <ion-select-option *ngFor="let bp of const_bp?.data" [value]="bp.cardname">
+                    {{bp.cardname}}
+                  </ion-select-option>
+
+                </ion-select>
+              </ion-row>
+
+
+              <ion-row>
+                <ion-col style="width:50%">Thành tiền</ion-col>
+                <ion-col style="width:50%; text-align: end;">{{totalValues | currency: 'VND ':
+                  'symbol':'1.0'}}</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>Giảm giá</ion-col>
+                <ion-col>
+                  <p style="width:15%; display:inline; float: right;text-align: end;" type="number">%</p>
+                  <ion-input (change)="discountTotal($event)"
+                    style="text-align: end; width: 80%; float: right; background: rgba(255, 0, 0, 0); height: 17px;--padding:0"></ion-input>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col style="width:50%">Tiền khách phải trả</ion-col>
+                <ion-col style="width:50%; text-align: end;">{{totalSum | currency: 'VND ': 'symbol':'1.0'}}</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>Tiền khách trả</ion-col>
+                <ion-col>
+                  <p style="width:23%;  float: left;text-align: end; font-size: 0.4cm;">VND</p>
+                  <ion-input name="product_price" [(ngModel)]="product_price" autocomplete="off"
+                    (change)="CommaFormatted($event)"
+                    style="width: 77%; float: right; background: rgba(255, 0, 0, 0); height: 17px;--padding:0; text-align: end;"
+                    inputmode="numeric" (change)="receiptTotal()"></ion-input>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col style="width:50%; ">Tiền trả lại</ion-col>
+                <ion-col style="width:50%; text-align: end;">{{send | currency: 'VND ': 'symbol':'1.0'}}</ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-gird>
+          <ion-button (click)="confirm('poscode.value',cardname.value,totalValues,discount,totalSum,product_price,send)"
+            (click)="downloadInvoice()" #btn style="position: absolute; bottom: 0;color: black;">
+            <ion-icon name="print"></ion-icon>&nbsp;<strong>In</strong>
+          </ion-button>
+        </ion-label>
+
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
+
+<!-- -->
+<ion-grid *ngIf="true" id="PrintInvoice" class="invoice-box" style="width: 100%;">
+  <ion-row style="width: 100%; text-align: center; padding-bottom:20px">
+    <span style="width:100%">HOÁ ĐƠN</span>
+    <span style="width:100%"><b>Ngày tạo:</b>&nbsp;{{pos?.data?.CreatedAt | date: 'dd/MM/yyyy'}}</span>
+  </ion-row>
+  <ion-row style="border-bottom:1px dashed black">
+    <span style="font-size: 1em; padding-bottom: 5px; width: 100%;"><b>Tên:</b>&nbsp;
+      {{configsetting?.company}}
+    </span><br />
+    <span style="font-size: 1em; padding-bottom: 5px; width: 100%;"><b>Địa
+        chỉ:</b>&nbsp;{{configsetting?.address}}</span><br />
+    <span style="font-size: 1em; padding-bottom: 5px; width: 100%;"><b>Ghi
+        chú:</b>&nbsp;{{pos?.data?.cardname}}</span><br />
+    <span style="font-size: 1em; padding-bottom: 5px; width: 100%;"><b>Hoá
+        đơn:</b>&nbsp;{{pos?.data?.poscode}}</span><br />
+  </ion-row>
+
+  <ion-row style="margin-top:5px;">
+    <ion-col style="float: left; padding-left: 0; padding-right: 0;" size="auto">
+      <div style="width: 100%;">Phương thức thanh toán:</div>
+    </ion-col>
+    <ion-col style="float: right; text-align: end;">TM/CK</ion-col>
+  </ion-row>
+
+  <ion-row style="margin-top:10px; margin-bottom: 10px; border-bottom: 0px dotted rgb(71, 71, 71);">
+    <ion-col style="width: 13.4%; padding: 0px;vertical-align: top;font-weight: bold;">Sản phẩm</ion-col>
+    <ion-col style="width: 43.4%; padding: 0px;vertical-align: top;text-align: center;font-weight: bold;">Số
+      lượng</ion-col>
+    <ion-col style="width: 43.4%; padding: 0px;vertical-align: top;text-align: end;font-weight: bold;">Giá</ion-col>
+  </ion-row>
+  <ion-row *ngFor="let item of const_data"
+    style="border-bottom:1px dashed black; margin-bottom:10px"><!-- *ngFor="let item of const_data"-->
+    <ion-row style="max-width: 100%;">
+      <!-- 0458968 -- Coke -->
+      <span style=" width: 100%;">{{ item.itemname }} </span>
+      <!-- sản phẩm 1 -->
+    </ion-row>
+    <ion-row style="width: 100%;">
+      <ion-col style="width: 13.4%; padding: 5px;vertical-align: top;">
+        <!-- {{ item.itemcode }} -- {{ item.itemname }} -->
+        <!-- Không được điền vào đây -->
+      </ion-col>
+      <ion-col style="width: 50.4%; padding: 0px;vertical-align: top;text-align: center;">
+        {{item.quantity}}
+        <!-- 10 -->
+      </ion-col>
+      <ion-col style="width: 43.4%; padding: 0px;vertical-align: top;text-align: end;">
+        {{ item?.price | currency: 'VND ': 'symbol':'1.0'}}
+        <!-- 100,000,000 VND -->
+      </ion-col>
+    </ion-row>
+  </ion-row>
+
+  <ion-row>
+    <ion-col style="padding: 0px;vertical-align: top;text-align: right;font-weight: bold;">
+      Thành tiền: {{totalValues | currency: 'VND ': 'symbol':'1.0'}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col style="padding: 0px;vertical-align: top;text-align: right;font-weight: bold;">
+      Giảm giá: {{discount}} %
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col style="padding: 0px;vertical-align: top;text-align: right;font-weight: bold;">
+      Tổng tiền: {{totalSum | currency: 'VND ': 'symbol':'1.0' }}
+    </ion-col>
+  </ion-row>
+  <p style="text-align:center; font-style:italic; padding-top: 20px;">Cảm ơn quý khách</p>
+
+  <img
+    style="margin-left: auto; margin-right: auto; display:block; justify-content: center; height:100px; width:100px; object-fit: contain;"
+    alt="" src="../assets/images/QR.png">
+</ion-grid>
+
+
+
+<!-- <ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <p>    <ion-input type="number" placeholder="000"> TAX: </ion-input>
+    </p>
+    <p>    <ion-input type="number" placeholder="000"> DISCOUNT:</ion-input>
+    </p>
+  </ion-toolbar>
+</ion-footer> -->

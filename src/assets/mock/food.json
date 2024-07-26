@@ -1,0 +1,67 @@
+[
+    {
+        "id": 1,
+        "itemcode": "10000001",
+        "itemname": "Hambuger",
+        "category": "one",
+        "uomgroup": "-1",
+        "instock": 200,
+        "status": "true",
+        "fee": "35,000 VND",
+        "quantity": 1,
+        "price": 35000,
+        "imagesURL": "../assets/images/hamburger.jpg"
+    },
+    {
+        "id": 2,
+        "itemcode": "10000002",
+        "itemname": "Mì quảng",
+        "category": "two",
+        "uomgroup": "-1",
+        "instock": 50,
+        "status": "false",
+        "quantity": 1,
+        "fee": "45,000 VND",
+        "price": 45000,
+        "imagesURL": "../assets/images/miquang.jpg"
+    },
+    {
+        "id": 3,
+        "itemcode": "1000003",
+        "itemname": "Bánh canh cua",
+        "group": "three",
+        "uomgroup": "kg",
+        "instock": 1,
+        "status": "false",
+        "quantity": 1,
+        "fee": "30,000 VND",
+        "price": 30000,
+        "imagesURL": "../assets/images/banhcanhcua.jpg"
+    },
+    {
+        "id": 4,
+        "itemcode": "10000004",
+        "itemname": "Hủ tiếu mực",
+        "category": "two",
+        "uomgroup": "kg",
+        "instock": 98000,
+        "status": "true",
+        "quantity": 1,
+        "fee": "47,000 VND",
+        "price": 47000,
+        "imagesURL": "../assets/images/hu-tieu-muc.jpg"
+    },
+    {
+        "id": 5,
+        "itemcode": "1000005",
+        "itemname": "Cơm gà",
+        "category": "one",
+        "uomgroup": "kg",
+        "instock": 10,
+        "status": "false",
+        "quantity": 1,
+        "fee": "35,000 VND",
+        "price": 35000,
+        "imagesURL": "../assets/images/comga.jpg"
+    }
+]

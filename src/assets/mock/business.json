@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "customercode": "V000011",
+        "customername": "Chi nhánh Công Ty TNHH MTV TM Tâm Phúc Nguyên",
+        "group": "one",
+        "address": "9 Weare Road, Canberra",
+        "phone": "062 4895 0379",
+        "status": "true",
+        "remarks": ""
+    },
+    {
+        "id": 2,
+        "customercode": "V000050",
+        "customername": "Công ty CP Vận Tải Bưu Chính Sài Gòn",
+        "group": "one",
+        "address": "98 Union Street, Brisbane",
+        "phone": "07 5902 3987",
+        "status": "true",
+        "remarks": ""
+    },
+    {
+        "id": 3,
+        "customercode": "V000196",
+        "customername": "Tập đoàn Công nghiệp-Viễn thông quân đội -Viettel",
+        "group": "two",
+        "address": "300 Billings Street, Sydney",
+        "phone": "02 5894 9410",
+        "status": "true",
+        "remarks": ""
+    },
+    {
+        "id": 4,
+        "customercode": "V000214",
+        "customername": "Võ Sơn Trà- Thi công Thạch cao Đà Nẵng",
+        "group": "two",
+        "address": "10 Buckley Drive, Sydney",
+        "phone": "02 9397 0600",
+        "status": "true",
+        "remarks": ""
+    }
+]

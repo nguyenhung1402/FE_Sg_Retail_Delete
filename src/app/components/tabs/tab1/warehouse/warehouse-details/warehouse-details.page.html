@@ -1,0 +1,57 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>{{ items?.data.whsname }}</ion-title>
+    <ion-buttons slot="end">
+			<ion-button (click)="UpdateItem(formGroup.value)"><ion-icon name="pencil"></ion-icon></ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+
+	<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form" id="vendor-form">
+  
+        <ion-item>
+            <ion-label position="stacked">Mã</ion-label>
+            <ion-input formControlName="whscode"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Tên</ion-label>
+            <ion-input formControlName="whsname"></ion-input>
+          </ion-item>
+          <!-- <ion-item>
+            <ion-label position="stacked">Category</ion-label>
+            <ion-select formControlName="category">
+              <ion-select-option value="one">Food</ion-select-option>
+              <ion-select-option value="two">Drink</ion-select-option>
+              <ion-select-option value="three">Vegetable</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Stock</ion-label>
+            <ion-input type="number" formControlName="instock"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Price</ion-label>
+            <ion-input type="number" formControlName="price"></ion-input>
+          </ion-item> -->
+          <!-- <ion-item>
+            <ion-label position="stacked">Trạng thái</ion-label>
+            <ion-select formControlName="status">
+              <ion-select-option [value]="true" >Hoạt động</ion-select-option>
+              <ion-select-option [value]="false" >Không hoạt động</ion-select-option>
+            </ion-select>
+          </ion-item> -->
+       
+
+
+		<!-- <div class="form-element">
+			<button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Submit
+				Form</button>
+		</div> -->
+
+	</form>
+
+</ion-content>

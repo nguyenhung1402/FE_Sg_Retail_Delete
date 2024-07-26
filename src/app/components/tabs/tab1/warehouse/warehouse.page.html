@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Kho</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="danger" id="open-modal-whs" (click)="openAddItem()">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-button style="--background: transparent; --box-shadow:none" slot="end" (click)="loadData()">
+      <ion-icon color="primary" name="refresh"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-searchbar placeholder="Tìm kiếm..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
+  <ion-list lines="none">
+    <ion-item button *ngFor="let item of Warehouse?.data | filter:filterTerm" detail="true" (click)="openItem(item.ID)">
+      <ion-avatar class="avata" slot="start">
+        <img src="../assets/images/warehouse.png" />
+      </ion-avatar>
+      <ion-label class="ion-text-wrap">
+        <!-- <p style="display: inline; margin-top:20px; font-weight: bold; color: red;">{{ item.whscode }}</p> -->
+        <!-- <p hidden style="display: inline; color: black; float: right; margin-top: 3px;"><b
+            style="color: rgb(0, 0, 0);">{{item.price| currency: 'VND ': 'symbol':'1.0'}}</b></p><br> -->
+
+        <p style="display: inline; width: 100%; float: left;color: darkblue;
+        font-weight: 500;"><b style="color: darkblue;
+          font-weight: 500;"></b>{{ item.whsname }}
+        </p>
+        <!-- <p hidden style="display: inline; color: black; width: 40%; float: right; margin-top: 3px; text-align: end;"><b
+            style="color: rgb(0, 0, 0);">Kho: {{item.instock}}</b></p><br>
+        <p hidden style="display: block; color: black;"><b style="color: red;">Phân loại: </b>{{ item.category }}</p>
+        <p hidden style="display: block; color: black;"><b style="color: red;">Trạng thái: </b>{{item.status}}</p><br> -->
+
+        <!-- <p style="display: block; color: black;"><b style="color: red;">Status: </b> {{item.status}}</p><br> -->
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<!-- 
+
+
+<ion-modal trigger="open-modal-whs" (willDismiss)="onWillDismiss($event)">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()">Hủy</ion-button>
+        </ion-buttons>
+        <ion-title style="text-align:center">Kho</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="confirm(formGroup.value)" [strong]="true">Thêm</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <form [formGroup]="formGroup" class="form" id="vendor-form">
+        <ion-item>
+          <ion-label position="stacked">Mã kho</ion-label>
+          <ion-input formControlName="whscode"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Tên kho</ion-label>
+          <ion-input formControlName="whsname"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Trạng thái</ion-label>
+          <ion-select formControlName="status">
+            <ion-select-option value="true">Hoạt động</ion-select-option>
+            <ion-select-option value="false">Không hoạt động</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </form>
+    </ion-content>
+  </ng-template>
+</ion-modal> -->
+
+<div bgcolor="#000000" *ngIf="!Loading">
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+  </div>
+</div>

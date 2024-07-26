@@ -1,0 +1,179 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+    <!-- (click)="print()" -->
+    <ion-buttons slot="end" style="font-size: 1.8em;margin-right: 15px;" (click)="print()">
+      <ion-icon name="print-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img
+    style="margin-left: auto; margin-right: auto; display:block; justify-content: center; height:120px; width:120px; object-fit: contain;"
+    alt="" src="{{BASE_SERVERS + configsetting?.image}}">
+
+
+  <ion-grid *ngIf="true" id="PrintInvoice" class="invoice-box" style="width: 100%;">
+    <ion-row style="width: 100%; text-align: center; padding-bottom:20px">
+      <span style="width:100%; font-size: 16px;">HOÁ ĐƠN</span>
+      <span style="width:100%"><b>Ngày tạo:</b>&nbsp;{{data?.CreatedAt | date: 'dd/MM/yyyy'}}</span>
+    </ion-row>
+    <ion-row style="border-bottom:1px dashed black">
+      <span style="font-size: 1.75em; padding-bottom: 5px; width: 100%;">
+        {{configsetting?.company}}
+      </span><br />
+      <span style="font-size: 1em; padding-bottom: 5px; width: 100%;"><b>Địa
+          chỉ:</b>&nbsp;{{configsetting?.address}}</span><br />
+      <span style="font-size: 1em; padding-bottom: 5px; width: 100%;"><b>Số điện thoại:</b>&nbsp;{{configsetting?.phone}}</span><br />
+      <span style="font-size: 1em; padding-bottom: 5px; width: 100%;"><b>Ghi
+          chú:</b>&nbsp;{{data?.tablenumber}}</span><br />
+      <span style="font-size: 1em; padding-bottom: 5px; width: 100%;"><b>Hoá
+          đơn:</b>&nbsp;{{data?.ID}}</span><br />
+          <span style="font-size: 1em; padding-bottom: 5px; width: 100%;"><b>Giờ ra:
+              </b>&nbsp;{{datetimeHHmm | date: 'dd/MM/yyyy HH:mm'}}</span><br />
+    </ion-row>
+
+    <ion-row style="margin-top:5px;">
+      <ion-col style="float: left; padding-left: 0; padding-right: 0;" size="auto">
+        <div style="width: 100%;">Phương thức thanh toán:</div>
+      </ion-col>
+      <ion-col style="float: right; text-align: end;padding-right: 15px;">TM/CK</ion-col>
+    </ion-row>
+
+    <ion-row style="margin-top:10px; margin-bottom: 10px; border-bottom: 0px dotted rgb(71, 71, 71);">
+      <ion-col style="width: 13.4%; padding: 0px;vertical-align: top;font-weight: bold;">Sản phẩm</ion-col>
+      <ion-col style="width: 43.4%; padding: 0px;vertical-align: top;text-align: center;font-weight: bold;">Số
+        lượng</ion-col>
+      <ion-col
+        style="width: 43.4%; padding: 0px;vertical-align: top;text-align: end;font-weight: bold;padding-right: 15px;">Giá</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let item of data?.orderDetails"
+      style="border-bottom:1px dashed black; margin-bottom:10px"><!-- *ngFor="let item of const_data"-->
+      <ion-row style="max-width: 100%;">
+        <!-- 0458968 -- Coke -->
+        <span style=" width: 100%;">{{ item.itemname }} </span>
+        <!-- sản phẩm 1 -->
+      </ion-row>
+      <ion-row style="width: 100%;">
+        <ion-col style="width: 13.4%; padding: 5px;vertical-align: top;">
+          <!-- {{ item.itemcode }} -- {{ item.itemname }} -->
+          <!-- Không được điền vào đây -->
+        </ion-col>
+        <ion-col style="width: 50.4%; padding: 0px;vertical-align: top;text-align: center;">
+          {{item.quantity}}
+          <!-- 10 -->
+        </ion-col>
+        <ion-col style="width: 43.4%; padding: 0px;vertical-align: top;text-align: end; padding-right: 15px;">
+          {{ item?.price * item.quantity | currency: 'đ ': 'symbol':'1.0'}}
+          <!-- 100,000,000 VND -->
+        </ion-col>
+      </ion-row>
+    </ion-row>
+
+    <ion-row>
+      <ion-col style="padding: 0px;vertical-align: top;text-align: right;font-weight: bold;padding-right: 15px;font-size: 12px;">
+        Thành tiền: {{data?.total | currency: 'đ ': 'symbol':'1.0'}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="padding: 0px;vertical-align: top;text-align: right;font-weight: bold;padding-right: 15px;font-size: 12px;">
+        Giảm giá: {{data?.discout}} %
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="padding: 0px;vertical-align: top;text-align: right;font-weight: bold;padding-right: 15px;font-size: 14px;">
+        Tổng tiền: {{data?.doctotal | currency: 'đ ': 'symbol':'1.0' }}
+      </ion-col>
+    </ion-row>
+
+
+
+    <p style="text-align:center; font-style:italic; margin: 0;">Cảm ơn quý khách</p>
+    <p style="text-align:center; font-style:italic; margin: 0;">Make by FTI Sài Gòn</p>
+    <br>
+  </ion-grid>
+
+  <!-- <div style="padding: 10px;">
+    <div style="padding: 10px;">
+      <ion-grid id="PrintInvoice" class="invoice-box" style="width: 100%;">
+        <ion-row style="width: 100%; text-align: center; padding-bottom:20px">
+          <span style="width:100%">HOÁ ĐƠN</span>
+          <span style="width:100%"><b>Ngày tạo:</b>&nbsp;{{data?.CreatedAt | date: 'dd/MM/yyyy'}}</span>
+        </ion-row>
+        <ion-row style="border-bottom:1px dashed black">
+          <span style="font-size: 1em; padding-bottom: 5px; width: 100%;"><b>Tên:</b>&nbsp;
+            {{configsetting?.company}}
+          </span><br />
+          <span style="font-size: 1em; padding-bottom: 5px; width: 100%;"><b>Địa chỉ:</b>&nbsp;
+            {{configsetting?.address}}
+          </span><br />
+          <span style="font-size: 1em; padding-bottom: 5px; width: 100%;"><b>Ghi
+              chú:</b>&nbsp;{{data?.tablenumber}}</span><br />
+          <span style="font-size: 1em; padding-bottom: 5px; width: 100%;"><b>Hoá
+              đơn:</b>&nbsp;{{data?.ID}}</span><br />
+        </ion-row>
+        <ion-row style="margin-top:5px;">
+          <ion-col style="float: left; padding-left: 0; padding-right: 0;" size="auto">
+            <div style="width: 100%;">Phương thức thanh toán:</div>
+          </ion-col>
+          <ion-col style="float: right; text-align: end;">TM/CK</ion-col>
+        </ion-row>
+        <ion-row style="border-bottom:1px dashed black">
+          <ion-col style="float: right; text-align: end;"></ion-col>
+        </ion-row>
+        <ion-row style="margin-top:10px; margin-bottom: 10px; border-bottom: 0px dotted rgb(71, 71, 71);">
+          <ion-col style="width: 13.4%; padding: 0px;vertical-align: top;font-weight: bold;">Sản phẩm</ion-col>
+          <ion-col style="width: 43.4%; padding: 0px;vertical-align: top;text-align: center;font-weight: bold;">Số
+            lượng</ion-col>
+          <ion-col style="width: 43.4%; padding: 0px;vertical-align: top;text-align: end;font-weight: bold;">Giá</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let item of data?.orderDetails" style="border-bottom:1px dashed black; margin-bottom:10px">
+          <ion-row style="max-width: 100%;">
+            <span style=" width: 100%;">{{ item.itemname }} </span>
+          </ion-row>
+          <ion-row style="width: 100%;">
+            <ion-col style="width: 13.4%; padding: 5px;vertical-align: top;">
+            </ion-col>
+            <ion-col style="width: 50.4%; padding: 0px;vertical-align: top;text-align: center;">
+              {{item.quantity}}
+            </ion-col>
+            <ion-col style="width: 43.4%; padding: 0px;vertical-align: top;text-align: end;">
+              {{ item?.price * item.quantity | currency: 'VND ': 'symbol':'1.0'}}
+            </ion-col>
+          </ion-row>
+        </ion-row>
+        <ion-row>
+          <ion-col style="padding: 0px;vertical-align: top;text-align: right;font-weight: bold;">
+            Thành tiền: {{data?.total | currency: 'VND ': 'symbol':'1.0'}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style="padding: 0px;vertical-align: top;text-align: right;font-weight: bold;">
+            Giảm giá: {{data?.discout}} %
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style="padding: 0px;vertical-align: top;text-align: right;font-weight: bold;">
+            Tổng tiền: {{data?.doctotal | currency: 'VND ': 'symbol':'1.0' }}
+          </ion-col>
+        </ion-row>
+        <p style="text-align:center; font-style:italic; padding-top: 20px;">Cảm ơn quý khách!</p>
+        <img
+          style="margin-left: auto; margin-right: auto; display:block; justify-content: center; height:100px; width:100px; object-fit: contain;"
+          alt="" src="../../../../../../assets/images/user.jpg">
+      </ion-grid>
+    </div>
+  </div> -->
+</ion-content>
+
+<style>
+  #PrintInvoice {
+    display: block;
+    font-size: 0.5rem;
+    font-weight: bold;
+  }
+</style>

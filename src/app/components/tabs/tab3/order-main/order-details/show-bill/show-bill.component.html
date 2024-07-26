@@ -1,0 +1,212 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+    <!-- (click)="print()" -->
+    <ion-buttons slot="end" style="font-size: 1.8em;margin-right: 15px;" (click)="print()">
+      <ion-icon name="print-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div style="padding: 10px;">
+    <ion-grid id="PrintInvoice" class="invoice-box" style="width: 100%;">
+      <ion-row style="width: 100%; text-align: center; padding-bottom:20px">
+        <span style="width:100%">HOÁ ĐƠN</span>
+        <span style="width:100%"><b>Ngày tạo:</b>&nbsp;{{data?.CreatedAt | date: 'dd/MM/yyyy'}}</span>
+      </ion-row>
+      <ion-row style="border-bottom:1px dashed black">
+        <span style="font-size: 1em; padding-bottom: 5px; width: 100%;"><b>Tên:</b>&nbsp;
+          {{configsetting?.company}}
+        </span><br />
+        <span style="font-size: 1em; padding-bottom: 5px; width: 100%;"><b>Địa chỉ:</b>&nbsp;
+          {{configsetting?.address}}
+        </span><br />
+        <span style="font-size: 1em; padding-bottom: 5px; width: 100%;"><b>Ghi
+            chú:</b>&nbsp;{{data?.tablenumber}}</span><br />
+        <span style="font-size: 1em; padding-bottom: 5px; width: 100%;"><b>Hoá
+            đơn:</b>&nbsp;{{data?.ID}}</span><br />
+      </ion-row>
+      <ion-row style="margin-top:5px;">
+        <ion-col style="float: left; padding-left: 0; padding-right: 0;" size="auto">
+          <div style="width: 100%;">Phương thức thanh toán:</div>
+        </ion-col>
+        <ion-col style="float: right; text-align: end;">TM/CK</ion-col>
+      </ion-row>
+      <ion-row style="border-bottom:1px dashed black">
+        <ion-col style="float: right; text-align: end;"></ion-col>
+      </ion-row>
+      <ion-row style="margin-top:10px; margin-bottom: 10px; border-bottom: 0px dotted rgb(71, 71, 71);">
+        <ion-col style="width: 13.4%; padding: 0px;vertical-align: top;font-weight: bold;">Sản phẩm</ion-col>
+        <ion-col style="width: 43.4%; padding: 0px;vertical-align: top;text-align: center;font-weight: bold;">Số
+          lượng</ion-col>
+        <ion-col style="width: 43.4%; padding: 0px;vertical-align: top;text-align: end;font-weight: bold;">Giá</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let item of data?.orderDetails" style="border-bottom:1px dashed black; margin-bottom:10px">
+        <ion-row style="max-width: 100%;">
+          <span style=" width: 100%;">{{ item.itemname }} </span>
+        </ion-row>
+        <ion-row style="width: 100%;">
+          <ion-col style="width: 13.4%; padding: 5px;vertical-align: top;">
+          </ion-col>
+          <ion-col style="width: 50.4%; padding: 0px;vertical-align: top;text-align: center;">
+            {{item.quantity}}
+          </ion-col>
+          <ion-col style="width: 43.4%; padding: 0px;vertical-align: top;text-align: end;">
+            {{ item?.price * item.quantity | currency: 'VND ': 'symbol':'1.0'}}
+          </ion-col>
+        </ion-row>
+      </ion-row>
+      <ion-row>
+        <ion-col style="padding: 0px;vertical-align: top;text-align: right;font-weight: bold;">
+          Thành tiền: {{data?.total | currency: 'VND ': 'symbol':'1.0'}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col style="padding: 0px;vertical-align: top;text-align: right;font-weight: bold;">
+          Giảm giá: {{data?.discout}} %
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col style="padding: 0px;vertical-align: top;text-align: right;font-weight: bold;">
+          Tổng tiền: {{data?.doctotal | currency: 'VND ': 'symbol':'1.0' }}
+        </ion-col>
+      </ion-row>
+      <p style="text-align:center; font-style:italic; padding-top: 20px;">Cảm ơn quý khách!</p>
+      <img
+        style="margin-left: auto; margin-right: auto; display:block; justify-content: center; height:100px; width:100px; object-fit: contain;"
+        alt="" src="../../../../../../assets/images/user.jpg">
+    </ion-grid>
+  </div>
+
+  <!-- <div id="PrintInvoice" class="invoice-box"
+    style="visibility: hidden;max-width: 100%;margin: auto;padding: 30px;border: 1px solid #eee;box-shadow: 0 0 10px rgba(0, 0, 0, .15);font-size: 16px;line-height: 24px;font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;color: #555;">
+    <table cellpadding="0" cellspacing="0" style="width: 100%;line-height: inherit;text-align: left;">
+      <tr class="top">
+        <td colspan="2" style="padding: 5px;vertical-align: top;">
+          <table style="width: 100%;line-height: inherit;text-align: left;">
+            <tr>
+              <td style="font-size: 0.7em;width: 100%; text-align: center; padding-bottom:-10px;font-weight: bold;">
+                {{configsetting?.company}}
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size: 0.6em;width: 100%; text-align: center; padding-bottom:-10px;">
+                {{configsetting?.address}}
+              </td>
+            </tr>
+            <tr>
+              <td
+                style="font-size: 0.6em;width: 100%; text-align: center; padding-bottom:10px;border-bottom: 1px solid rgb(162, 162, 162)">
+                SĐT: {{configsetting?.phone}}
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size: 0.7em;width: 100%; text-align: center; padding-bottom:-20px;font-weight: bold;">
+                HÓA ĐƠN - {{data?.ID}}
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size: 0.65em;width: 100%; text-align: center; padding-bottom:-10px;">
+                {{data?.CreatedAt | date: 'hh:mm _ dd/MM/yyyy'}}
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr class="information">
+        <td colspan="2">
+          <table style="width: 100%;line-height: inherit;text-align: left;">
+            <tr>
+              <td style="font-size: 0.6em; padding-bottom: 5px; width: 100%;">
+                Tên khách hàng:{{data?.cardname}}
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size: 0.6em; padding-bottom: 5px; width: 100%;">
+                Quầy: {{data?.tablenumber}}
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size: 0.6em; padding-bottom: 5px; width: 100%;">
+                Ghi chú: {{data?.remarks}}
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr class="heading">
+        <td
+          style="font-size: 0.65em;padding: 5px;vertical-align: top;background: #eee;border-bottom: 1px solid black;font-weight: bold;">
+          Tên sản phẩm
+        </td>
+
+        <td
+          style="font-size: 0.65em;padding: 5px;vertical-align: top;text-align: right;background: #eee;border-bottom: 1px solid black;font-weight: bold;">
+          Giá
+        </td>
+      </tr>
+      <ng-container *ngFor="let item of data?.orderDetails">
+        <tr class="item">
+          <td style="font-size: 0.65em;padding: 5px;vertical-align: top;border-bottom: 1px solid #eee;">
+            {{ item.itemname }}
+          </td>
+        </tr>
+
+        <tr class="item">
+          <td style="font-size: 0.65em;padding: 5px;vertical-align: top;border-bottom: 1px solid #eee;">
+            {{ item.quantity }}
+          </td>
+
+          <td
+            style="font-size: 0.65em;padding: 5px;vertical-align: top;text-align: right;border-bottom: 1px solid #eee;">
+            {{ item?.price | number: '1.0-0'}}
+          </td>
+        </tr>
+      </ng-container>
+      <tr class="total" style="border-top: 1px solid black">
+        <td
+          style="font-size: 0.65em;padding: 5px;vertical-align: top;background: #eee;font-weight: bold;border-top: 1px solid black">
+          Thành tiền:
+        </td>
+
+        <td
+          style="font-size: 0.65em;padding: 5px;vertical-align: top;text-align: right;font-weight: bold;border-top: 1px solid black">
+          {{data?.doctotal | number: '1.0-0' }}
+        </td>
+      </tr>
+
+      <tr class="total">
+        <td style="font-size: 0.65em;padding: 5px;vertical-align: top;background: #eee;font-weight: bold;">
+          Giảm giá:
+        </td>
+
+        <td style="font-size: 0.65em;padding: 5px;vertical-align: top;text-align: right;font-weight: bold;">
+          {{data?.discout}} %
+        </td>
+      </tr>
+
+      <tr class="total">
+        <td style="font-size: 0.65em;padding: 5px;vertical-align: top;background: #eee;font-weight: bold;">
+          Tổng tiền:
+        </td>
+
+        <td style="font-size: 0.65em;padding: 5px;vertical-align: top;text-align: right;font-weight: bold;">
+          {{data?.doctotal | number: '1.0-0' }}
+        </td>
+      </tr>
+
+    </table>
+    <table style="font-size: 0.65em;text-align:center; font-style:italic; padding-top: 20px;width: 100%;">
+      <tr>
+        <td>
+          Cảm ơn quý khách!
+        </td>
+      </tr>
+    </table>
+  </div> -->
+</ion-content>

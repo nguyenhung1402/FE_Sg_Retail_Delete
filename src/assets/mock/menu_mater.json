@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "name": "Item Mater Data",
+        "component": "componentItems"
+    },
+    {
+        "id": 2,
+        "name": "Business Partner",
+        "component": "componentBusiness"
+    }
+]

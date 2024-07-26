@@ -1,0 +1,39 @@
+.order-main {
+    .order-main-v1 {
+        .w-100 {
+            width: 100%;
+        }
+    }
+
+    .order-main-v2 {
+        .example-card {
+            margin-bottom: 15px;
+
+            .order-main-v2-1 {
+                display: flex;
+
+                .order-main-v2-1-1 {
+                    flex: 1;
+                    margin: 0px !important;
+                }
+
+                .order-main-v2-1-2 {
+                    flex: 4;
+                    margin: 0px !important;
+                    text-align: right;
+                }
+            }
+            .order-main-v2-2 {
+                button {
+                    color: white !important;
+                    height: 32px !important;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+::ng-deep.mat-mdc-card-header-text {
+    width: 100%;
+}

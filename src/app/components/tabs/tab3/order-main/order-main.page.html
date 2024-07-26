@@ -1,0 +1,258 @@
+<ion-header style="position: relative">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title style="font-size: 1.29em">Đơn hàng</ion-title>
+    <!-- (click)="clearOrderDetailAdd()" -->
+    <ion-buttons slot="primary">
+      <ion-button
+        color="danger"
+        id="open-modal-order"
+        (click)="openModalTable()"
+      >
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-button
+      style="--background: transparent; --box-shadow: none"
+      slot="end"
+      (click)="loadDataTable()"
+    >
+      <ion-icon color="primary" name="refresh"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div class="order-main">
+    <div class="order-main-v1"></div>
+    <div class="order-main-v2">
+      <!-- <cdk-virtual-scroll-viewport itemSize="0" class="example-viewport"> -->
+      <!-- <ion-list lines="none"> -->
+      <div
+        class="order-main-v2-card"
+        *ngFor="let item of const_table"
+        (click)="openDetailItem(item.ID)"
+      >
+        <mat-card-header class="order-main-v2-card-header">
+          <!-- <div mat-card-avatar style="
+          background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+          background-size: cover;
+          margin-bottom: 0px !important;
+          "></div> -->
+          <mat-card-subtitle style="font-size: 2em"
+            >{{item?.remark}}</mat-card-subtitle
+          >
+        </mat-card-header>
+        <!-- <mat-card-footer> -->
+        <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
+        <!-- <mat-progress-bar mode="determinate"></mat-progress-bar>
+        </mat-card-footer> -->
+      </div>
+      <!-- </ion-list> -->
+      <!--</cdk-virtual-scroll-viewport> -->
+    </div>
+  </div>
+  <!-- <mat-form-field appearance="fill" class="w-100">
+    <mat-label>Ngày</mat-label>
+    <input matInput [matDatepicker]="dp3" disabled (dateChange)="changeDate($event)">
+    <mat-datepicker-toggle matIconSuffix [for]="dp3"></mat-datepicker-toggle>
+    <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+  </mat-form-field>
+  <mat-accordion>
+    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+      <ng-container *ngFor="let item of Table?.data">
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header *ngIf="item.show">
+            <mat-panel-title style="font-size: 1.49em;">
+              {{item.tablenumber}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-panel-description style="display: contents;">
+            <mat-selection-list [multiple]="false" #item>
+              <mat-list-option *ngFor="let item of item?.child" (click)="openItem(item.ID)"
+                [style.background]="item?.viewpayment == 'off' ? 'gainsboro' : 'transparent'">
+                <mat-icon matListItemIcon style="margin-left: 0px; margin-right: 8px;"> circle_notifications</mat-icon>
+                <div matListItemTitle style="color: cornflowerblue;">{{item.codeauto}} <span style="position: absolute;
+                right: 20px;font-size: 1em; color: black; font-weight: 500;">{{item.doctotal | currency:
+                    'đ':'symbol':'1.0'}}</span></div>
+                <mat-icon matListItemIcon style="position: absolute;font-size: 1em;right: -40px; top: 20px;">
+                  arrow_forward_ios
+                </mat-icon>
+              </mat-list-option>
+            </mat-selection-list>
+          </mat-panel-description>
+        </mat-expansion-panel>
+      </ng-container>
+    </cdk-virtual-scroll-viewport>
+  </mat-accordion> -->
+</ion-content>
+
+<!-- <ion-modal #modalitm trigger="open-modal-order" (willDismiss)="onWillDismiss($event)">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="centers/tabs/tab3" (click)="modalitm.dismiss()"></ion-back-button>
+        </ion-buttons>
+        <ion-title style="text-align:center">Thêm mới</ion-title>
+        <ion-buttons slot="end" class="flex-1" style="justify-content: end;font-size: 1.2em;margin-right: 15px;"
+          (click)="confirm(tablename.value,tablenumber.value,totalValues,discount,totalSum,product_price,send,formGroup.value)">
+          Lưu
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <form [formGroup]="formGroup" class="form" id="vendor-form" style="font-size: 1.3em;">
+        <ion-item id="font-size08">
+          <ion-label position="floating"><b>Tên</b></ion-label>
+          <ion-input #tablename formControlName="tablename"></ion-input>
+        </ion-item>
+        <ion-item id="font-size08">
+          <ion-label position="floating"><b>Mã</b></ion-label>
+          <ion-select style="width: 80%;" #tablenumber formControlName="tablenumber">
+            <ion-select-option *ngFor="let item of Table?.data"
+              [value]="item.tablenumber">{{item.tablenumber}}</ion-select-option>
+          </ion-select>
+          <ion-button (click)="openModalTable()" style=" position: absolute; right: 5px;
+            top: 10px;  --background: transparent; --box-shadow:none">
+            <ion-icon slot="icon-only" name="add" style=" color:red"></ion-icon>
+          </ion-button>
+          <ion-button style=" position: absolute; right: 45px;
+          top: 10px;  --background: transparent; --box-shadow:none" slot="end" (click)="loadDataTable()">
+            <ion-icon color="primary" name="refresh"></ion-icon>
+          </ion-button>
+        </ion-item>
+        <ion-item id="font-size08">
+          <ion-label position="floating"><b>Ghi chú</b></ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+      </form>
+      <ion-item class="add_btn" style="--border: none;" lines="none">
+        <h2 class="text-center flex-2" style="margin-bottom: 10px; text-align: left;">Danh sách</h2>
+        <ion-buttons slot="primary" slot="end" class="flex-1" style="justify-content: end;margin-left: 0px">
+          <ion-button color="danger" style="font-size: 1em;padding-bottom: 10px;" (click)="openModal()">
+            <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end" class="flex-1" style="justify-content: end;">
+          <ion-button style="font-size: 1em; margin-bottom: 8px;" color="danger" id="openPayment" expand="block">
+            Thanh toán
+          </ion-button>
+        </ion-buttons>
+        <ion-modal class="payment" #modal trigger="openPayment">
+          <ng-template>
+            <ion-content>
+              <ion-toolbar style="text-align: center;">
+                <ion-title style="color: black;">Thanh toán</ion-title>
+              </ion-toolbar>
+              <ion-label>
+                <ion-gird>
+                  <ion-col>
+                    <ion-row style="padding: 0 10px">
+                      <ion-col style="width:50%">Thành tiền</ion-col>
+                      <ion-col style="width:50%; text-align: end;">{{totalValues | currency: 'VND ':
+                        'symbol':'1.0'}}</ion-col>
+                    </ion-row>
+                    <ion-row style="padding: 0 10px">
+                      <ion-col>Giảm giá</ion-col>
+                      <ion-col>
+                        <p style="width:15%; display:inline; float: right;text-align: end;" type="number">%</p>
+                        <ion-input [(ngModel)]="discount" (change)="discountTotal($event)"
+                          style="text-align: end; width: 80%; float: right; background: rgba(255, 0, 0, 0); height: 17px;--padding:0"></ion-input>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row style="padding: 0 10px">
+                      <ion-col style="width:50%">Tiền khách phải trả</ion-col>
+                      <ion-col style="width:50%; text-align: end;">{{totalSum | currency: 'VND ':
+                        'symbol':'1.0'}}</ion-col>
+                    </ion-row>
+                    <ion-row style="padding: 0 10px">
+                      <ion-col>Tiền khách trả</ion-col>
+                      <ion-col>
+                        <p style="width:23%;  float: left;text-align: end; font-size: 0.4cm;">VND</p>
+                        <ion-input name="product_price" [(ngModel)]="product_price" autocomplete="off"
+                          (change)="CommaFormatted($event)"
+                          style="width: 77%; float: right; background: rgba(255, 0, 0, 0); height: 17px;--padding:0; text-align: end;"
+                          inputmode="numeric" (change)="receiptTotal()">
+                        </ion-input>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row style="padding: 0 10px">
+                      <ion-col style="width:50%; ">Tiền trả lại</ion-col>
+                      <ion-col style="width:50%; text-align: end;">{{send | currency: 'VND ': 'symbol':'1.0'}}</ion-col>
+                    </ion-row>
+                  </ion-col>
+                </ion-gird>
+                <ion-button
+                  (click)="confirm(tablename.value,tablenumber.value,totalValues,discount,totalSum,product_price,send,formGroup.value)"
+                  (click)="downloadInvoice()" #btn style="position: absolute; bottom: 0;width: 46%;">
+                  <ion-icon name="print"></ion-icon>&nbsp;<strong>In</strong>
+                </ion-button>
+                <ion-button
+                  style="margin-left:15px; color: color; font-weight: bold;--background: darkgray;position: absolute; bottom: 0;right: 5px;width: 46%;"
+                  (click)="modal.dismiss()">Đóng</ion-button>
+              </ion-label>
+            </ion-content>
+          </ng-template>
+        </ion-modal>
+      </ion-item>
+      <ion-list class="list_item" style="overflow-y: scroll; background: transparent;" lines="none">
+        <ion-card *ngFor="let item of order_details" style="font-size: 1em;" [ngClass]="item.class">
+          <ion-label class="ion-text-wrap" style="background: transparent;">
+            <div class="orderDetails-v">
+              <div class="orderDetails-v1">
+                <ion-avatar class="card-div-v1-2">
+                  <ion-img src={{BASE_SERVERS+item.image}}></ion-img>
+                </ion-avatar>
+              </div>
+              <div class="orderDetails-v2">
+                <ion-row style="margin:10px 10px 0px 5px;" [style.margin-top]="item?.hide == true ? '0px': '10px'">
+                  <ion-col style="text-align:end;font-weight: bold">{{ item.itemname }}</ion-col>
+                </ion-row>
+                <ion-row style="margin:0px 10px 0px 5px;">
+                  <ion-col style="text-align: start;flex: 1;">Số lượng</ion-col>
+                  <ion-col style="text-align: end;flex: 2;">
+                    <ion-input value="{{ item.quantity }}" type="number" placeholder="0" #quantity id="quantity"
+                      (change)="total($event,quantity.value,item.itemcode)"
+                      style="text-align: right;float: right; background: rgba(255, 0, 0, 0); height: 23px;--padding:0; color: black;"></ion-input>
+                  </ion-col>
+                </ion-row>
+                <ion-row style="margin:0px 10px 0px 5px;">
+                  <ion-col style="text-align: start;flex: 1;">Giá</ion-col>
+                  <ion-col style="text-align: end;flex: 2;">{{ item.price |
+                    currency:'VND':'symbol':'1.0'}}</ion-col>
+                </ion-row>
+                <ion-row style="margin:0px 10px 0px 5px;">
+                  <ion-col style="text-align: start;flex: 1;">Tổng</ion-col>
+                  <ion-col style="text-align: end;color: darkorange;font-weight: bold;flex: 2;">
+                    {{ item.price * item.quantity | currency: 'VND':'symbol':'1.0'}}
+                  </ion-col>
+                </ion-row>
+                <ion-row style="margin:0px 10px 0px 5px;">
+                  <ion-col style="text-align: start;flex: 1;">Kho</ion-col>
+                  <ion-col style="text-align: end;flex: 2;">
+                    <ion-select class="orderDetails-v2-2-1" placeholder="Kho"
+                      (ionChange)="changeWhsCode($event, item.itemcode)" value="{{item.whscode}}">
+                      <ion-select-option *ngFor="let item1 of warehouse?.data" [value]="item1.whscode">
+                        {{item1.whsname}}
+                      </ion-select-option>
+                    </ion-select>
+                  </ion-col>
+                  <ion-col style="text-align: end;flex: 1; color: black;">{{item.ton}}</ion-col>
+                </ion-row>
+              </div>
+            </div>
+          </ion-label>
+        </ion-card>
+      </ion-list>
+    </ion-content>
+  </ng-template>
+</ion-modal> -->
+
+<div bgcolor="#000000" *ngIf="!Loading">
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+  </div>
+</div>

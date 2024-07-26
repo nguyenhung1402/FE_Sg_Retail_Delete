@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align:center">Thêm mới</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm(formGroup.value)" [strong]="true">Thêm</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <form [formGroup]="formGroup" class="form" id="vendor-form">
+    <!-- <ion-item>
+      <ion-label position="stacked" style="font-weight: bold;">Mã khách hàng</ion-label>
+      <ion-input formControlName="cardcode"></ion-input>
+    </ion-item> -->
+    <ion-item>
+      <ion-label position="stacked" style="font-weight: bold;">Tên khách hàng</ion-label>
+      <ion-input formControlName="cardname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked" style="font-weight: bold;">Nhóm</ion-label>
+      <ion-select formControlName="group">
+        <ion-select-option value="V">Nhà cung cấp</ion-select-option>
+        <ion-select-option value="C">Khách hàng</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked" style="font-weight: bold;">Địa chỉ</ion-label>
+      <ion-input formControlName="address"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked" style="font-weight: bold;">Số điện thoại</ion-label>
+      <ion-input formControlName="phone"></ion-input>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-label position="stacked" style="font-weight: bold;">Trạng thái</ion-label>
+      <ion-select formControlName="status">
+        <ion-select-option value="true">Hoạt động</ion-select-option>
+        <ion-select-option value="false">Không hoạt động</ion-select-option>
+      </ion-select>
+    </ion-item> -->
+  </form>
+</ion-content>
+
+<div bgcolor="#000000" *ngIf="!Loading">
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align:center">Location</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm(formGroup.value)" [strong]="true">Thêm</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <form [formGroup]="formGroup" class="form" id="vendor-form">
+    <!-- <ion-item>
+      <ion-label position="stacked">Mã</ion-label>
+      <ion-input formControlName="tablenumber"></ion-input>
+    </ion-item> -->
+    <ion-item>
+      <ion-label position="stacked">Tên</ion-label>
+      <ion-input formControlName="remark"></ion-input>
+    </ion-item>
+  </form>
+</ion-content>
+
+
+<div bgcolor="#000000" *ngIf="!Loading">
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+  </div>
+</div>

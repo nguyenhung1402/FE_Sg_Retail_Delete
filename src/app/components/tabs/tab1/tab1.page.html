@@ -1,0 +1,112 @@
+<ion-header [translucent]="true">
+  <!-- style="height: 83px;" -->
+  <ion-toolbar id="v1_header header-tab1-1">
+    <!-- <div class="example-button-container btn-settings"> -->
+    <!-- <button mat-fab color="primary" class="btn_setting" (click)="openModal()">
+        <mat-icon>settings</mat-icon>
+      </button> -->
+    <button mat-fab color="primary" class="btn_setting" (click)="openModal()">
+      <mat-icon>settings</mat-icon>
+    </button>
+    <div>
+      <span class="sectionC1">SG </span>
+      <span class="sectionC2">Retail</span>
+    </div>
+    <div class="sectionC3">
+      <span>SATISFIED - GROWTH - PRIORITIZE</span>
+    </div>
+    <!-- </div> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- style="overflow-y: hidden" -->
+  <!-- <button mat-fab color="primary" class="btn_setting" (click)="openModal()">
+    <mat-icon>settings</mat-icon>
+  </button> -->
+  <!-- <cdk-virtual-scroll-viewport itemSize="0" class="example-viewport">
+    <ion-list id="v2_list" class="v2_list" style="width: 100%; height: 100%;">
+      <ion-item button *ngFor="let item of const_data" detail="true" (click)="openItem(item.ID, item.url)"
+        id="line-charts">
+        <span class="example-spacer"></span>
+        <ion-avatar slot="start">
+          <img alt="" src="../../../../assets/images/{{item.img}}" />
+        </ion-avatar>
+        <ion-label class="ion-text-wrap" style="font-size: 1.49em;">
+          <span>{{ item.title }}</span>
+        </ion-label>
+      </ion-item>
+      <ion-item button (click)="logout()" id="line-charts">
+        <ion-icon name="power"></ion-icon>
+        <span class="example-spacer"></span>
+        <ion-label class="ion-text-wrap" style="font-size: 1.49em;">
+          <span style="margin-left: 15px;">Đăng xuất</span>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </cdk-virtual-scroll-viewport> -->
+
+  <div class="section gradient-container">
+    <!-- <img
+      class="image_background"
+      src="../../../../assets/images/background_image.jpg"
+      alt=""
+    /> -->
+    <!-- <div class="sectionA">
+      <div class="slider">
+        <img class="active sectionB4" src="../../../../assets/images/img1.png" alt="">
+        <img class="sectionB4" src="../../../../assets/images/img2.png" alt="">
+        <img class="sectionB4" src="../../../../assets/images/img3.png" alt="">
+        <img class="sectionB4" src="../../../../assets/images/img4.png" alt="">
+      </div>
+    </div> -->
+    <!-- <mat-card class="sectionC">
+      <mat-card-content class="sectionC0">
+        <div>
+          <span class="sectionC1">SG </span>
+          <span class="sectionC2">Retail</span>
+        </div>
+        <div class="sectionC3">
+          <span>SATISFIED - GROWTH - PRIORITIZE</span>
+        </div>
+      </mat-card-content>
+
+    </mat-card> -->
+    <div class="sectionB">
+      <div class="sectionB1">
+        <div class="sectionB2">
+          <div class="sectionB3">
+            <div
+              class="day-card"
+              *ngFor="let item of const_data"
+              (click)="openItem(item.ID, item.url)"
+            >
+              <div class="day-card-content">
+                <span class="day-weather-temperature"
+                  >67
+                  <span class="day-weather-temperature-unit">°F</span>
+                </span>
+                <div class="sectionB4">
+                  <img src="../../../../assets/images/{{item.img}}" alt="" />
+                </div>
+                <span class="day-name">{{ item.title }}</span>
+              </div>
+            </div>
+            <div class="day-card" (click)="logout()">
+              <div class="day-card-content">
+                <span class="day-weather-temperature"
+                  >67
+                  <span class="day-weather-temperature-unit">°F</span>
+                </span>
+                <div class="sectionB4">
+                  <img src="../../../../assets/images/logout.png" alt="" />
+                </div>
+                <span class="day-name">Đăng xuất</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

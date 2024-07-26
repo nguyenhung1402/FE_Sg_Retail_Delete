@@ -1,0 +1,474 @@
+#v1_header {
+  margin: auto;
+  text-align: center;
+  height: 100%;
+
+  img {
+    height: 33px;
+    width: 120px;
+    margin-top: 4px;
+  }
+}
+
+.example-viewport {
+  height: 100%;
+  width: 100%;
+}
+
+::ng-deep.item-inner {
+  border-bottom: solid 1px red;
+}
+
+ion-list {
+  background: transparent;
+
+  ion-item::part(native) {
+    background: transparent;
+    height: 82px;
+  }
+}
+
+// .image_background {
+//   position: fixed;
+//   width: 70%;
+//   height: 70%;
+//   margin: 15%;
+//   // opacity: 0.35;
+//   object-fit: contain;
+// }
+
+ion-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.example-button-row .mat-mdc-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  // width: 120px;
+}
+
+.btn-settings {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  // bottom: 100px;
+  z-index: 99;
+  box-shadow: none !important;
+}
+.mat-mdc-fab:active,
+.mat-mdc-fab:focus:active,
+.mat-mdc-mini-fab:active,
+.mat-mdc-mini-fab:focus:active {
+  box-shadow: none !important;
+}
+
+#line-charts {
+  // --inner-padding-end: 0px;
+  // --padding-start:0px
+  --height: 80px !important;
+  // margin-left: 20px;
+}
+
+.header-tab1-1 {
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
+  // position: absolute;
+  // top: 16px;
+  // left: 0;
+  // right: 0;
+  // bottom: 0;
+  text-align: center;
+
+  .header-tab1-1-1 {
+    color: orange;
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+
+  .header-tab1-1-2 {
+    color: #1f10b3;
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+}
+
+::ng-deep.inner-scroll {
+  overflow-y: hidden !important;
+}
+
+.scroll-y,
+.scroll-x {
+  -webkit-overflow-scrolling: touch;
+  will-change: scroll-position;
+  overscroll-behavior: contain;
+}
+
+.scroll-y {
+  touch-action: pan-y;
+  overflow-y: var(--overflow);
+}
+
+.scroll-x {
+  touch-action: pan-x;
+  overflow-x: var(--overflow);
+}
+
+::ng-deep.v2_list button {
+  height: 80px !important;
+}
+
+.btn_setting {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  color: black;
+  box-shadow: none;
+  animation: btn_setting-spin 2s infinite linear;
+}
+
+@keyframes btn_setting-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.section {
+  --background: #f2f6f9;
+  min-height: calc(100vh - 60px);
+  //   background-image: url("../../../../assets/images/background_image.jpg");
+
+  .sectionA {
+    height: 200px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      top: 0px;
+      left: 0px;
+      overflow: hidden;
+    }
+
+    .sectionB4 {
+      font-size: 30px;
+      text-align: center;
+      opacity: 0;
+      width: 100%;
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+      height: 200px;
+      z-index: 2;
+      background-repeat: no-repeat;
+    }
+
+    @keyframes one {
+      0% {
+        opacity: 1;
+      }
+
+      25% {
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 0;
+      }
+
+      75% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes two {
+      25% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+
+      75% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes three {
+      25% {
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      75% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes four {
+      0% {
+        opacity: 0;
+      }
+
+      25% {
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 0;
+      }
+
+      75% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .slider .sectionB4.active {
+      animation-name: one;
+      animation-duration: 10s;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+
+    .slider .sectionB4:nth-of-type(2) {
+      animation-name: two;
+      animation-duration: 10s;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+
+    .slider .sectionB4:nth-of-type(3) {
+      animation-name: three;
+      animation-duration: 10s;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+
+    .slider .sectionB4:last-of-type {
+      animation-name: four;
+      animation-duration: 10s;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+  }
+
+  .sectionB {
+    .sectionB1 {
+      padding-top: 0.75rem;
+      padding-right: 0.75rem;
+      padding-left: 0.75rem;
+      margin-right: auto;
+      margin-left: auto;
+
+      .sectionB2 {
+        display: flex;
+        justify-content: center;
+        .sectionB3 {
+          display: inline-flex;
+          flex-wrap: wrap;
+          .day-card {
+            backdrop-filter: blur(3px);
+            background-color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            // box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+            box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+              0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+              0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+            height: 8vw;
+            max-height: 160px;
+            min-height: 140px;
+            // min-width: 180px;
+            min-width: 150px;
+            position: relative;
+            transition: transform 250ms;
+            width: calc(100% / 7);
+            // margin-bottom: 10px;
+            // margin-top: 5px;
+            border-bottom: 5px solid blue;
+            cursor: pointer;
+            // margin-left: 2px;
+            // margin-right: 2px;
+            margin: 10px;
+
+            .day-card-content {
+              display: flex;
+              flex-direction: column;
+              height: calc(100% + 5px);
+              justify-content: space-evenly;
+              padding: 10px;
+
+              .day-weather-temperature {
+                align-items: flex-start;
+                display: flex;
+                font-size: 0.9em;
+                justify-content: center;
+                color: whitesmoke;
+                text-align: center;
+              }
+
+              .day-name {
+                color: black;
+                z-index: 1;
+                font-weight: bold;
+                font-size: 1em;
+                text-transform: uppercase;
+
+                position: relative;
+                top: 22px;
+              }
+
+              .sectionB4 {
+                // width: 100%;
+                // height: 8vw;
+
+                img {
+                  margin: auto;
+                  height: 100%;
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 20px;
+                  height: 114px;
+                  // opacity: 0.5;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .sectionC {
+    margin-top: 1px;
+    --height: 50px;
+    text-align: center;
+
+    .sectionC0 {
+      line-height: initial;
+      padding-bottom: 16px;
+    }
+
+    .sectionC1 {
+      color: #1f10b3;
+      font-weight: 700;
+      font-size: 2em;
+    }
+
+    .sectionC2 {
+      color: orange;
+      font-weight: 700;
+      font-size: 2em;
+    }
+
+    .sectionC3 {
+      font-style: italic;
+      font-weight: 400;
+    }
+  }
+}
+// .section .image_background {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+//   z-index: -1;
+//   margin: 0;
+// }
+.gradient-container {
+  // background-image: url("../../../../assets/images/background_image.jpg");
+  // background: linear-gradient(
+  //   to bottom,
+  //   white 0%,
+  //   rgba(255, 255, 255, 0.87) 30%,
+  //   rgb(90, 141, 218) 100%
+  // );
+  background: linear-gradient(
+      to bottom,
+      white 0%,
+      rgba(255, 255, 255, 0.87) 30%,
+      rgb(90, 141, 218) 100%
+    ),
+    url("../../../../assets/images/background_image.jpg") center / cover
+      no-repeat;
+  z-index: -1;
+}
+// Test chữ
+.sectionC1 {
+  color: #1f10b3;
+  font-weight: 700;
+  font-size: 2em;
+}
+
+.sectionC2 {
+  color: orange;
+  font-weight: 700;
+  font-size: 2em;
+}
+
+.sectionC3 {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.toolbar-container {
+  height: 83px !important;
+  --height: 83px !important;
+  min-height: 83px !important;
+}
+
+ion-toolbar {
+  text-align: center;
+  --min-height: 83px !important;
+  padding-top: 40px !important;
+}

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- <ion-button color="medium" (click)="cancel()"><ion-icon name="arrow-back"></ion-icon>
+      </ion-button> -->
+      <ion-back-button defaultHref="/centers/tabs/tab2"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align:center">Hóa đơn</ion-title>
+
+    <ion-button style="--background: transparent; --box-shadow:none" slot="end" (click)="loaddata()">
+      <ion-icon color="primary" name="refresh"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item button *ngFor="let item of pos?.data" detail="true" (click)="openItem(item.ID)"
+      style="--border-color:transparent">
+      <ion-avatar slot="start">
+        <ion-img style="object-fit: contain;" src="../assets/images/invoice.jpg"></ion-img>
+      </ion-avatar>
+      <ion-label class="ion-text-wrap">
+
+        <p style="display: inline; margin-top:20px; font-weight: bold; color: cornflowerblue;">{{ item.poscode }}</p>
+
+        <!-- <p style="display: block; color: black;"><b style="color: rgb(15, 14, 14);">Ngày tạo: </b>{{item.docDate  | date: 'dd/MM/yyyy'}}</p> -->
+        <br>
+
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "itemcode": "10000001",
+        "itemname": "Coca-Cola",
+        "quantity": 1
+    },
+    {
+        "id": 2,
+        "itemcode": "10000004",
+        "itemname": "Mì quảng",
+        "quantity": 1
+    },
+    {
+        "id": 3,
+        "itemcode": "10000032",
+        "itemname": "Cà Rốt",
+        "quantity": 4
+    },
+    {
+        "id": 4,
+        "itemcode": "10000352",
+        "itemname": "Cải bẹ xanh",
+        "quantity": 1
+    },
+    {
+        "id": 5,
+        "itemcode": "10000121",
+        "itemname": "Hải sản",
+        "quantity": 3
+    }
+]

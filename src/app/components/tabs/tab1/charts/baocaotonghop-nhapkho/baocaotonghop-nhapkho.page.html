@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Tổng hợp nhập kho</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ion-padding">
+    <p>
+      <mat-form-field appearance="fill" class="w-100" id="vendor-option">
+        <mat-label>Từ ngày</mat-label>
+        <input matInput [matDatepicker]="dp3" disabled (dateChange)="changeDate($event,dp4,'fromdate')">
+        <mat-datepicker-toggle matIconSuffix [for]="dp3"></mat-datepicker-toggle>
+        <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-100" id="vendor-option">
+        <mat-label>Đến ngày</mat-label>
+        <input matInput [matDatepicker]="dp4" disabled (dateChange)="changeDate($event,dp3,'todate')">
+        <mat-datepicker-toggle matIconSuffix [for]="dp4"></mat-datepicker-toggle>
+        <mat-datepicker #dp4 disabled="false"></mat-datepicker>
+      </mat-form-field>
+    </p>
+    <mat-tab-group>
+      <mat-tab label="Bảng">
+        <div>
+          <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!-- Total Column -->
+            <ng-container matColumnDef="no">
+              <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.no}} </mat-cell>
+            </ng-container>
+
+            <!-- Total Column -->
+            <ng-container matColumnDef="itemcode">
+              <mat-header-cell *matHeaderCellDef> Mã </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.itemcode}} </mat-cell>
+            </ng-container>
+
+            <!-- Discount Column -->
+            <ng-container matColumnDef="quantity">
+              <mat-header-cell *matHeaderCellDef> Số lượng </mat-header-cell>
+              <mat-cell *matCellDef="let element" style="justify-content: end;"> {{element.quantity}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="groupHeader">
+              <mat-cell *matCellDef="let group" style="font-weight: bold;">Kho {{group.group}}</mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+            <mat-row *matRowDef="let row; columns: ['groupHeader']; when: isGroup"> </mat-row>
+
+          </mat-table>
+        </div>
+      </mat-tab>
+      <!-- <mat-tab label="Biểu đồ">
+        <div id="bar-chart-container">
+          <canvas #myChart style="position: relative; height:20vh; width:40vw"> </canvas>
+        </div>
+      </mat-tab> -->
+    </mat-tab-group>
+
+  </div>
+</ion-content>
+
+
+<div bgcolor="#000000" *ngIf="!Loading">
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+  </div>
+</div>

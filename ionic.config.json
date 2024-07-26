@@ -1,0 +1,8 @@
+{
+  "name": "SG Retail",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

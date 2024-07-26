@@ -1,0 +1,425 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ 'Sign up' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<!-- <ion-content [fullscreen]="true"> -->
+
+<div class="container gradient-container">
+  <!-- <img src="https://i.ibb.co/XWdPc2X/wave-01.png" alt="" class="wave"> -->
+  <img src="../../../assets/images/background_image.jpg" alt="" class="wave" />
+  <div class="container">
+    <div class="img">
+      <!-- <img src="https://i.ibb.co/JvXP8rW/phone.png" alt=""> -->
+      <img src="../../../assets/images/gblogin-people.png" alt="" />
+    </div>
+    <div class="login-container">
+      <form class="form-login" action="index.html">
+        <!-- <img class="avatar" src="../../../assets//images/image-removebg-preview.png" alt=""> -->
+        <img
+          class="avatar"
+          src="../../../assets//images/LOGOSGRetail.png"
+          alt=""
+        />
+        <h2 style="font-weight: 600; color: #f7880f">
+          <span style="font-weight: 600; color: #1f10b3">SG</span> Retail
+        </h2>
+        <div class="input-div one">
+          <div class="i">
+            <!-- <i class="fas fa-user"> </i> -->
+            <ion-icon name="person-add-outline"></ion-icon>
+          </div>
+          <div>
+            <!-- <h5>Tài khoản</h5> -->
+            <input
+              class="input"
+              type="text"
+              name="username"
+              placeholder="Tài khoản"
+              [(ngModel)]="credentials.username"
+            />
+          </div>
+        </div>
+        <div class="input-div pass">
+          <div class="i">
+            <ion-icon name="key-outline"></ion-icon>
+          </div>
+          <div class="div">
+            <!-- <h5>Mật khẩu</h5> -->
+            <input
+              class="input"
+              type="password"
+              name="password"
+              placeholder="Mật khẩu"
+              [(ngModel)]="credentials.password"
+            />
+          </div>
+        </div>
+        <!-- <a href="#">Forgot Password?</a> -->
+      </form>
+      <input type="submit" class="btn" value="Đăng nhập" (click)="login()" />
+    </div>
+  </div>
+  <!-- <div>
+    <img style="position: absolute;
+    z-index: 1;
+    width: 70px;
+    height: 80px;
+    top: 9%;
+    left: 32%;" src="../../../assets//images/image-removebg-preview.png" alt="">
+  </div>
+  <div class="screen">
+    <div class="screen__content">
+      <form class="login">
+        <div class="login__field">
+          <ion-icon class="login__icon fas fa-user" name="people-outline"></ion-icon>
+          <input style="color: #000000;" type="text" class="login__input" name="username" placeholder="User name" [(ngModel)]="credentials.username">
+        </div>
+        <div class="login__field">
+          <ion-icon class="login__icon fas fa-lock" name="key-outline"></ion-icon>
+          <input style="color: #000000;" type="password" class="login__input" name="password" placeholder="Password" [(ngModel)]="credentials.password">
+        </div>
+        <button class="button login__submit" (click)="login()">
+          <span class="button__text">Đăng nhập</span>
+          <ion-icon class="button__icon fas fa-chevron-right" name="chevron-forward-outline"></ion-icon>
+        </button>
+      </form>
+      <div class="social-login">
+        <h3>Liên hệ</h3>
+        <div class="social-icons">
+          <a href="https://ftisg.com.vn/" class="social-login__icon fab fa-instagram">
+            <ion-icon name="earth-outline"></ion-icon>
+          </a>
+          <a href="https://www.facebook.com/FTISGERPconsultingservice" class="social-login__icon fab fa-facebook">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+          <a href="https://www.youtube.com/@ftisaigon" class="social-login__icon fab fa-twitter">
+            <ion-icon name="logo-youtube"></ion-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="screen__background">
+      <span class="screen__background__shape screen__background__shape4"></span>
+      <span class="screen__background__shape screen__background__shape3"></span>
+      <span class="screen__background__shape screen__background__shape2"></span>
+      <span class="screen__background__shape screen__background__shape1"></span>
+    </div>
+  </div> -->
+</div>
+
+<ion-button class="about" id="openAbout">
+  <ion-icon name="information-circle"></ion-icon>
+</ion-button>
+
+<ion-modal #openAbout trigger="openAbout">
+  <ng-template #name>
+    <ion-content>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-back-button
+              defaultHref=""
+              (click)="openAbout.dismiss()"
+            ></ion-back-button>
+          </ion-buttons>
+          <ion-title> FTI SAIGON </ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <div class="main">
+        <img alt="" src="../assets/images/image-removebg-preview.png" />
+        <div class="inf" style="margin-top: 30px">
+          <h1>
+            <p>FTI SAIGON</p>
+            <p>Customer Centric</p>
+          </h1>
+        </div>
+        <div class="content" style="font-size: 0.7em">
+          <p style="padding: 20px">
+            FTI SÀI GÒN là công ty chuyên triển khai các giải pháp của SAP.
+          </p>
+          <div class="footer">
+            <p><ion-icon name="globe"></ion-icon>&nbsp;www.ftisg.com.vn</p>
+            <p>
+              <ion-icon name="mail-open"></ion-icon>&nbsp;infosg@ftisg.com.vn
+            </p>
+            <p><ion-icon name="phone-portrait"></ion-icon>&nbsp;028.36368846</p>
+            <p>
+              <ion-icon name="map"></ion-icon>&nbsp;215 Nam Kỳ Khởi Nghĩa,
+              Phường Võ Thị Sáu, Quận 3, Thành phố Hồ Chí Minh, Việt Nam.
+            </p>
+          </div>
+        </div>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Raleway, sans-serif;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .screen {
+    background: linear-gradient(90deg, #3d27ea, #638fdc);
+    position: relative;
+    /* height: 600px;
+	width: 360px;	 */
+    height: 100%;
+    width: 100%;
+    box-shadow: 0px 0px 24px #5c5696;
+  }
+
+  .screen__content {
+    z-index: 1;
+    position: relative;
+    height: 100%;
+  }
+
+  .screen__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    -webkit-clip-path: inset(0 0 0 0);
+    clip-path: inset(0 0 0 0);
+  }
+
+  .screen__background__shape {
+    transform: rotate(45deg);
+    position: absolute;
+  }
+
+  .screen__background__shape1 {
+    height: 520px;
+    width: 520px;
+    background: #fff;
+    top: -50px;
+    right: 120px;
+    border-radius: 0 72px 0 0;
+  }
+
+  .screen__background__shape2 {
+    height: 220px;
+    width: 220px;
+    background: #3e6ce6;
+    top: -172px;
+    right: 0;
+    border-radius: 32px;
+  }
+
+  .screen__background__shape3 {
+    height: 540px;
+    width: 190px;
+    background: linear-gradient(270deg, #331ce4, #5c83d1);
+    top: -24px;
+    right: 0;
+    border-radius: 32px;
+  }
+
+  .screen__background__shape4 {
+    height: 400px;
+    width: 200px;
+    background: linear-gradient(270deg, #5741ff, #5c83d1);
+    top: 420px;
+    right: 50px;
+    border-radius: 60px;
+  }
+
+  .login {
+    width: 320px;
+    padding: 30px;
+    padding-top: 156px;
+  }
+
+  .login__field {
+    padding: 20px 0px;
+    position: relative;
+  }
+
+  .login__icon {
+    position: absolute;
+    top: 29px;
+    font-size: 1.5em;
+    color: #7875b5;
+  }
+
+  .login__input {
+    border: none;
+    border-bottom: 2px solid #0606ea;
+    background: none;
+    padding: 10px;
+    padding-left: 35px;
+    font-weight: 700;
+    width: 75%;
+    transition: 0.2s;
+  }
+
+  .login__input:active,
+  .login__input:focus,
+  .login__input:hover {
+    outline: none;
+    border-bottom-color: #6a679e;
+  }
+
+  .login__submit {
+    background: #fff;
+    font-size: 14px;
+    margin-top: 30px;
+    padding: 16px 20px;
+    border-radius: 26px;
+    border: 1px solid #d4d3e8;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: #4c489d;
+    box-shadow: 0px 2px 2px #5c5696;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .login__submit:active,
+  .login__submit:focus,
+  .login__submit:hover {
+    border-color: #6a679e;
+    outline: none;
+  }
+
+  .button__icon {
+    font-size: 24px;
+    margin-left: auto;
+    color: #7875b5;
+  }
+
+  .social-login {
+    position: absolute;
+    height: 140px;
+    width: 160px;
+    text-align: center;
+    bottom: 0px;
+    right: 0px;
+    color: #fff;
+  }
+
+  .social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .social-login__icon {
+    padding: 20px 10px;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0px 0px 8px #7875b5;
+  }
+
+  .social-login__icon:hover {
+    transform: scale(1.5);
+  }
+</style>
+
+<!-- 
+  <ion-icon hidden id="openSetting" name="settings"></ion-icon>
+
+  <ion-modal #openSetting trigger="openSetting">
+    <ng-template #name>
+      <ion-content>
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-back-button defaultHref="" (click)="openSetting.dismiss()"></ion-back-button>
+            </ion-buttons>
+            <ion-title>
+              Setting
+            </ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-item>
+          <ion-label position="floating"><b>Setting</b></ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <div id="container">
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+        <h2 class="active"> {{'Đăng nhập'}}</h2>
+
+        <div class="fadeIn first signup-immages">
+          <img src="../assets/images/ftiretail.jpg" id="icon" alt="User Icon" style="width: 35%;object-fit: contain;" />
+        </div>
+        <form>
+          <input type="text" id="signup" class="fadeIn second" name="username" placeholder="Username" [(ngModel)]="credentials.username">
+          <input type="password" id="password" class="fadeIn third" name="password" placeholder="Passowrd" [(ngModel)]="credentials.password">
+          <br>
+          <input type="submit" class="fadeIn sixth" value="Login" (click)="login()">
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+
+  <ion-button class="about" id="openAbout">
+    <ion-icon name="information-circle"></ion-icon>
+  </ion-button>
+
+  <ion-modal #openAbout trigger="openAbout">
+    <ng-template #name>
+      <ion-content>
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-back-button defaultHref="" (click)="openAbout.dismiss()"></ion-back-button>
+            </ion-buttons>
+            <ion-title>
+              FTI SAIGON
+            </ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <div class="main">
+          <img alt="" src="../assets/images/image-removebg-preview.png">
+          <div class="inf" style="margin-top: 30px;">
+            <h1>
+              <p>FTI SAIGON</p>
+              <p>Customer Centric</p>
+            </h1>
+        
+          </div>
+          <div class="content" style="font-size: 0.7em;">
+            <p style="padding: 20px;">FTI SÀI GÒN là công ty chuyên triển khai các giải pháp của SAP.</p>
+            <div class="footer">
+              <p><ion-icon name="globe"></ion-icon>&nbsp;www.ftisg.com.vn</p>
+              <p><ion-icon name="mail-open"></ion-icon>&nbsp;infosg@ftisg.com.vn</p>
+              <p><ion-icon name="phone-portrait"></ion-icon>&nbsp;028.36368846</p>
+              <p><ion-icon name="map"></ion-icon>&nbsp;215 Nam Kỳ Khởi Nghĩa, Phường Võ Thị Sáu, Quận 3, Thành phố Hồ Chí Minh,
+                Việt Nam.</p>
+            </div>
+          </div>
+        
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal> -->
+<!-- </ion-content> -->

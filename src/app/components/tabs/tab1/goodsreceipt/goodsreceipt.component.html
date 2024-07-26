@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()"><ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title hidden style="text-align:center">Thêm mới</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm()"><ion-icon style="color: rgb(255, 86, 35);" name="save"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <!-- <ion-item> -->
+  <!-- <input type="number" value="5" min="1" max="9"> -->
+
+  <!-- <ion-input type="number" placeholder="000"></ion-input> -->
+  <!-- <ion-label position="stacked">Your name</ion-label> -->
+  <!-- <ion-input [(ngModel)]="name" placeholder="Your name"></ion-input> -->
+  <!-- </ion-item> -->
+  <ion-list lines="none">
+
+
+
+    <!-- <ion-item button *ngFor="let item of const_data">
+      <ion-avatar slot="start">
+        <img src="../assets/images/approval.jpg" />
+      </ion-avatar>
+      <ion-label class="ion-text-wrap">
+        <h3 class="display-flex-content">
+          <span class="flex-1" > {{ item.itemcode }}</span>
+        </h3>
+        <br>
+        <p> {{ item.itemname }}</p>
+      </ion-label>
+      <ion-input  type="number" placeholder="0" slot="end" style="width: 10%; font-size:medium;" value="{{item.quantity}}" #quantity></ion-input>
+      <p style="font-size: small; padding-left: 100px;">Price: {{item.price}}</p>
+      <ion-checkbox slot="end" (click)="addlist(item, quantity.value)"></ion-checkbox>
+    </ion-item> -->
+    <ion-item button *ngFor="let item of const_data" style="width: 100%; border-bottom: 0.5px solid rgb(88, 83, 83);" (click)="addlist(item)">
+      <ion-avatar slot="start">
+        <ion-img src="{{ item.imagesURL }}"></ion-img>
+        </ion-avatar>
+        <div class="itemInfo">
+          <p>{{ item.itemcode }}</p>
+          <p>{{ item.itemname }}</p>
+          <!-- <p style="">Tồn kho: {{ item.instock }}</p>
+          <p style="">{{ item.price | currency: 'VND ': 'symbol':'1.0'}}</p> -->
+        </div>
+        <!-- <p  style="opacity: 0; display: inline; width: 0px; height: 0; font-size: 0.4cm; color: black;">Price: {{ item.price }}</p> -->
+          <ion-checkbox slot="end" [checked] = "item.checked" ></ion-checkbox>
+    </ion-item> 
+  </ion-list>
+</ion-content>

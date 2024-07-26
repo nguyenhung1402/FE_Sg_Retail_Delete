@@ -1,0 +1,241 @@
+.total {
+    margin: 100px;
+    margin-bottom: 10px;
+    text-align: right;
+
+}
+
+.tax {
+    margin: 100px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    text-align: right;
+}
+
+
+.discount {
+    margin: 100px;
+    margin-top: 20px;
+    text-align: right;
+}
+
+
+.footer {
+    font-weight: 600;
+}
+
+
+.display-flex-content {
+    display: flex;
+    flex-direction: row;
+    //justify-content: space-between;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+
+.flex-1 {}
+
+.flex-2 {
+    float: right;
+    background-color: rgba(255, 0, 0, 0);
+    z-index: 10;
+    position: relative;
+    z-index: 20;
+    margin-top: -5px;
+    text-align: end;
+
+}
+
+.color-text {
+    color: #000000;
+    font-size: 14px;
+}
+
+
+
+
+//////////////////////////////
+ion-header {
+    ion-toolbar {
+        ion-button {
+            --background: transparent;
+        }
+    }
+}
+
+
+.bg {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+// ion-list{
+//     position: relative;
+//     z-index: 10;
+//     top: 0px;
+//     left: 0;
+//     right: 0;
+//     margin-bottom: 70px;
+//     background: transparent;
+//     ion-item::part(native){
+//         background: transparent;
+
+//     }
+
+// }
+
+.item {
+    position: relative;
+    // z-index: 20;
+    font-size: 0.4cm;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    left: 0;
+    top: 20px;
+    right: 0;
+    bottom: 50px;
+    z-index: 5;
+    background: transparent;
+
+    ion-item {
+        --box-shadow: 0 0px 5px 5px rgba(234, 234, 234, 0.544);
+
+        &:last-child {
+            padding-bottom: 100px;
+        }
+    }
+
+    ion-item::part(native) {
+        // background: transparent;
+        // border-bottom: 1px solid rgb(175, 175, 175);
+        margin-top: 5px;
+        margin-left: 2.5%;
+        margin-bottom: 5px;
+        width: 95%;
+        background: rgba(255, 255, 255, 0.515);
+        backdrop-filter: blur(1px);
+        // --backdrop-opacity:0.5;
+        border-radius: 10px;
+        box-shadow: 0 0px 5px 5px rgba(241, 241, 241, 0.6);
+
+        .item-inner::ng-deep {
+            border: 0;
+            --border: 0;
+        }
+    }
+
+    ion-avatar {
+
+        ion-img {
+            width: 36px;
+            height: 36px;
+        }
+    }
+}
+
+ion-footer {
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    background: white;
+
+    ion-button {
+        position: fixed;
+        height: 50px;
+        width: 100%;
+        left: 0%;
+        right: 0%;
+        bottom: 0;
+        --border-radius: 0;
+        --background: rgb(225, 220, 220);
+        color: rgb(255, 106, 47);
+
+        ion-button::part(native) {
+            background: rgb(225, 220, 220);
+        }
+    }
+}
+
+
+.logo_bg {
+    position: fixed;
+    z-index: 1;
+    width: 50%;
+    height: 50%;
+    top: 25%;
+    bottom: 25%;
+    left: 25%;
+    right: 25%;
+    object-fit: contain;
+    opacity: 0.3;
+}
+
+
+ion-modal {
+    --height: 250px;
+    --border-radius: 16px;
+    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --backdrop-filter: blur(10px);
+    --margin-left: 2.5%;
+    --margin-right: 2.5%;
+    --width: 95%;
+
+    ion-content::part(scroll) {
+        overflow: hidden;
+    }
+
+
+
+    ion-button {
+        width: 100%;
+        margin-left: 0%;
+        --border-radius: 0;
+        --background: #ececec;
+        color: rgb(255, 145, 90);
+        text-transform: none;
+
+    }
+
+
+}
+
+ion-content {
+    ion-modal::part(backdrop) {
+        background: rgb(218, 222, 228);
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+ion-modal ion-toolbar {
+    --box-shadow: 0 2px 10px 5px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --background: #f7f7f7;
+    --color: rgb(255, 56, 56);
+}
+
+
+.btn-save {
+    width: 100%;
+    height: 100%;
+    font-size: 1.1em;
+    font-weight: 500;
+    background: #f8b30f !important;
+}
+
+.w-100 {
+    width: 100%;
+}

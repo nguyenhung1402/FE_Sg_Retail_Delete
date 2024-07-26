@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align:center">Thêm mới</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm(formGroup.value)" [strong]="true">Thêm</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding" >
+  <form [formGroup]="formGroup" class="form" id="vendor-form">
+    <!-- <ion-item>
+      <ion-label position="stacked">Mã sản phẩm</ion-label>
+      <ion-input formControlName="itemcode"></ion-input>
+    </ion-item> -->
+    <ion-item>
+      <ion-label position="stacked">Tên sản phẩm</ion-label>
+      <ion-input formControlName="itemname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Mã vạch</ion-label>
+      <ion-input formControlName="barcode"></ion-input>
+    </ion-item>
+
+    <ion-item >
+      <ion-label position="stacked" >Phân loại</ion-label>
+      <ion-select style="width: 80%;" #tablenumber formControlName="category" >
+        <ion-select-option *ngFor="let item of Category?.data" 
+          [value]="item.categorycode">{{item.categoryname}}</ion-select-option>
+        <!-- <ion-select-option value="false">Không hoạt động</ion-select-option> -->
+      </ion-select>
+      <ion-button (click)="loadData_Category()"
+        style=" position: absolute; right:55px; top: 15px;  --background: transparent; --box-shadow:none">
+        <ion-icon slot="icon-only" name="refresh" style=" color:rgb(0, 47, 255)"></ion-icon>
+      </ion-button>
+      <ion-button (click)="openModal()" 
+        style=" position: absolute; right:15px; top: 15px;  --background: transparent; --box-shadow:none">
+        <ion-icon (click)="openModal()" slot="icon-only" name="add" style=" color:cornflowerblue"></ion-icon>
+      </ion-button>
+      
+    </ion-item>
+    
+   
+    
+    <!-- <ion-item>
+      <ion-label position="stacked">Kho</ion-label>
+      <ion-input type="number" formControlName="instock"></ion-input>
+    </ion-item> -->
+    <ion-item>
+      <ion-label position="stacked">Đơn giá</ion-label>
+      <ion-input formControlName="price" name="product_price" [(ngModel)]="product_price" autocomplete="off"
+        (keydown)="numberCheck($event)" (keyup)="CommaFormatted($event)"></ion-input>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-label position="stacked">Ghi chú</ion-label>
+      <ion-input formControlName="remarks"></ion-input>
+    </ion-item> -->
+    <!-- <ion-item hidden>
+      <ion-label position="stacked">Image</ion-label>
+      <ion-input></ion-input>
+    </ion-item> -->
+    <!-- <ion-item>
+      <ion-label position="stacked">Trạng thái</ion-label>
+      <ion-select formControlName="status">
+        <ion-select-option value="true">Hoạt động</ion-select-option>
+        <ion-select-option value="false">Không hoạt động</ion-select-option>
+      </ion-select>
+    </ion-item> -->
+
+
+
+    <div class="content" role="main">
+      <div class="form-group input_container">
+        <input placeholder="." type="file" id="file" (change)="selectFile($event)" #img1>
+        <!-- <input type="file" id="file" (change)="handleFileInput($event)"> -->
+      </div>
+      <div class="btn_upload">
+        <button mat-raised-button (click)="handleFileInput()">Upload Image </button>
+      </div>
+      <div>
+        <img alt="" [src]="preview_upload1" class="preview">
+      </div>
+    </div>
+  </form>
+
+</ion-content>
+
+<div bgcolor="#000000" *ngIf="!Loading">
+	<div id="loader-wrapper">
+		<div id="loader"></div>
+	</div>
+</div>

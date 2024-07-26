@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Hủy</ion-button>
+    </ion-buttons>
+    <ion-title style="text-align:center">Thêm mới</ion-title>
+    <ion-buttons slot="end">
+      <ion-button  (click)="confirmCategory(formGroup.value)">Xác nhận</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <form [formGroup]="formGroup"  class="form" id="vendor-form">
+    <ion-item>
+      <ion-label position="stacked">Mã phân loại</ion-label>
+      <ion-input formControlName="categorycode"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Tên phân loại</ion-label>
+      <ion-input formControlName="categoryname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Trạng thái</ion-label>
+      <ion-select formControlName="statuscategory">
+        <ion-select-option value="true">Hoạt động</ion-select-option>
+        <ion-select-option value="false">Không hoạt động</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </form>
+
+</ion-content>

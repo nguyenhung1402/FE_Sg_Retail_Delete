@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()"><ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="text-align:center">Thêm mới</ion-title>
+    <!-- <ion-buttons slot="end">
+      <ion-button id="open-modal" (click)="confirm()">Xác nhận</ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+
+  <ion-list lines="none">
+    <ion-item button *ngFor="let item of const_data?.data"
+      style="width: 100%; border-bottom: 0.5px solid rgb(88, 83, 83);" (click)="addlist(item)">
+      <ion-avatar slot="start">
+        <ion-img src="{{ item.image ? BASE_SERVERS+item.image : imgDefault}}"></ion-img>
+      </ion-avatar>
+      <div class="itemInfo">
+        <p>{{ item.itemcode }}</p>
+        <p>{{ item.itemname }}</p>
+        <!-- <p style="">Tồn kho: {{ item.instock }}</p>
+          <p style="">{{ item.price | currency: 'VND ': 'symbol':'1.0'}}</p> -->
+      </div>
+      <!-- <p  style="opacity: 0; display: inline; width: 0px; height: 0; font-size: 0.4cm; color: black;">Price: {{ item.price }}</p> -->
+      <ion-checkbox slot="end" [checked]="item.checked"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <!-- <ion-modal trigger="open-modal">
+    <ng-template>
+      <ion-content>
+        <ion-toolbar>
+          <ion-title>Chọn kho</ion-title>
+        </ion-toolbar>
+        <ion-button style="position: fixed; bottom: 0; width: 100%;">
+          OK!
+        </ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal> -->
+</ion-content>

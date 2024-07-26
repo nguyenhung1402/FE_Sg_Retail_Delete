@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Hủy</ion-button>
+    </ion-buttons>
+    <ion-title style="text-align:center">Thêm mới</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm()">Xác nhận</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-list lines="none">
+    <ion-searchbar placeholder="Tìm kiếm..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
+    <ion-item button *ngFor="let item of const_data?.data | filter:filterTerm"
+      style="width: 100%; border-bottom: 0.5px solid rgb(88, 83, 83);" (click)="addlist(item)">
+      <ion-avatar slot="start">
+        <img alt="" src={{BASE_SERVERS+item.image}}/>
+      </ion-avatar>
+      <ion-col class="itemInfo" style="width: 100%;">
+        
+          <!-- <ion-row>
+            {{ item.itemcode }}
+          </ion-row> -->
+          <ion-col style="padding: 0; font-size: 0.8em;">
+            {{ item.itemname }}
+          </ion-col>
+        
+       
+          <!-- <ion-col style="padding: 0;">
+            Tồn kho: {{ item.status }}
+          </ion-col> -->
+          <ion-col style="padding: 0; text-align: end; margin-right: 0; float: right; width: 50%;font-size: 0.8em;">
+            {{ item.price | currency: 'VND ': 'symbol':'1.0'}}
+          </ion-col>
+        
+      </ion-col>
+      <ion-checkbox slot="end" [checked]="item.checked"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</ion-content>

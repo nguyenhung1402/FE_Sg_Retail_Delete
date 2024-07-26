@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{const_table?.remark}}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="danger" (click)="openAddItem()">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-button style="--background: transparent; --box-shadow:none" slot="end" (click)="loaddata();">
+      <ion-icon color="primary" name="refresh"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <mat-tab-group>
+    <mat-tab label="Ngày">
+      <div class="order-main">
+        <div class="order-main-v1">
+          <mat-form-field appearance="fill" class="w-100" id="vendor-option">
+            <mat-label>Ngày</mat-label>
+            <input matInput [matDatepicker]="dp3" disabled (dateChange)="changeDate($event)">
+            <mat-datepicker-toggle matIconSuffix [for]="dp3"></mat-datepicker-toggle>
+            <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="order-main-v2">
+          <mat-card class="example-card" *ngFor="let item of const_listorder">
+            <mat-card-header>
+              <mat-card-subtitle class="order-main-v2-1">
+                <p class="order-main-v2-1-1">Ngày</p>
+                <p class="order-main-v2-1-2">{{item?.docDate | date: 'dd/MM/yyyy'}}</p>
+              </mat-card-subtitle>
+              <mat-card-title class="order-main-v2-1">
+                <p class="order-main-v2-1-1">Tổng tiền</p>
+                <p class="order-main-v2-1-2">{{item?.doctotal | currency: 'VND ': 'symbol':'1.0'}}</p>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-actions class="order-main-v2-2">
+              <button mat-fab extended color="primary" (click)="openItem(item.ID)">
+                <mat-icon>input</mat-icon>
+                Chi tiết
+              </button>
+              <!-- <button mat-button (click)="openItem(item.ID)">Chi tiết</button> -->
+              <mat-chip-listbox aria-label="Dog selection">
+                <mat-chip *ngIf="item.viewpayment == 'save'">
+                  <img matChipAvatar src="../../../../../../assets/images/red_status.png" />
+                  Chưa thanh toán
+                </mat-chip>
+                <mat-chip color="primary" *ngIf="item.viewpayment == 'off'">
+                  <img matChipAvatar src="../../../../../../assets/images/green_status.png" />
+                  Đã thanh toán
+                </mat-chip>
+                <!-- <mat-chip color="primary" *ngIf="item.viewpayment != 'off' || item.viewpayment != 'save'">
+                  <img matChipAvatar src="../../../../../../assets/images/green_status.png" />
+                  Không xác định
+                </mat-chip> -->
+              </mat-chip-listbox>
+            </mat-card-actions>
+            <mat-card-footer>
+              <!-- <mat-progress-bar value="40" mode="indeterminate"></mat-progress-bar> -->
+              <mat-progress-bar mode="determinate" value="100"></mat-progress-bar>
+            </mat-card-footer>
+          </mat-card>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Chưa thanh toán">
+      <div class="order-main">
+        <div class="order-main-v1">
+
+        </div>
+        <div class="order-main-v2">
+          <mat-card class="example-card" *ngFor="let item of const_listorder_notthanhtoan">
+            <mat-card-header>
+              <mat-card-subtitle class="order-main-v2-1">
+                <p class="order-main-v2-1-1">Ngày</p>
+                <p class="order-main-v2-1-2">{{item?.docDate | date: 'dd/MM/yyyy'}}</p>
+              </mat-card-subtitle>
+              <mat-card-title class="order-main-v2-1">
+                <p class="order-main-v2-1-1">Tổng tiền</p>
+                <p class="order-main-v2-1-2">{{item?.doctotal | currency: 'VND ': 'symbol':'1.0'}}</p>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-actions class="order-main-v2-2">
+              <button mat-fab extended color="primary" (click)="openItem(item.ID)">
+                <mat-icon>input</mat-icon>
+                Chi tiết
+              </button>
+              <!-- <button mat-button (click)="openItem(item.ID)">Chi tiết</button> -->
+              <mat-chip-listbox aria-label="Dog selection">
+                <mat-chip *ngIf="item.viewpayment == 'save'">
+                  <img matChipAvatar src="../../../../../../assets/images/red_status.png" />
+                  Chưa thanh toán
+                </mat-chip>
+                <mat-chip color="primary" *ngIf="item.viewpayment == 'off'">
+                  <img matChipAvatar src="../../../../../../assets/images/green_status.png" />
+                  Đã thanh toán
+                </mat-chip>
+                <!-- <mat-chip color="primary" *ngIf="item.viewpayment != 'off' || item.viewpayment != 'save'">
+                  <img matChipAvatar src="../../../../../../assets/images/green_status.png" />
+                  Không xác định
+                </mat-chip> -->
+              </mat-chip-listbox>
+            </mat-card-actions>
+            <mat-card-footer>
+              <!-- <mat-progress-bar value="40" mode="indeterminate"></mat-progress-bar> -->
+              <mat-progress-bar mode="determinate" value="100"></mat-progress-bar>
+            </mat-card-footer>
+          </mat-card>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+</ion-content>

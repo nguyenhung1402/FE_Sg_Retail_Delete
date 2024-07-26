@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;padding-right: 100px;">Giao dịch</ion-title>
+    <ion-button style="--background: transparent; --box-shadow:none" slot="end" (click)="loadData()">
+      <ion-icon color="primary" name="refresh"></ion-icon>
+    </ion-button>
+    <ion-buttons slot="primary" hidden>
+      <ion-button color="danger" id="open-modal-bp">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <cdk-virtual-scroll-viewport itemSize="0" class="example-viewport">
+    <ion-searchbar placeholder="Tìm kiếm..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
+    <ion-list lines="none">
+      <ion-item button *ngFor="let item of const_data?.data | filter:filterTerm" detail="true"
+        (click)="openItem(item.ID)">
+        <ion-avatar slot="start">
+          <ion-img style="object-fit: contain;" src="../assets/images/table_order.jpg"></ion-img>
+        </ion-avatar>
+        <ion-label class="ion-text-wrap">
+          <p style="display: inline; font-weight: bold; color: cornflowerblue;">{{ item.autocode }}</p>
+          <br>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </cdk-virtual-scroll-viewport>
+</ion-content>
+
+<div bgcolor="#000000" *ngIf="!Loading">
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+  </div>
+</div>

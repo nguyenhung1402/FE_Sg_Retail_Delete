@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Chi tiết</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row style="width: 90%;
+  padding-top: 17px;
+  margin: auto;
+  font-size: 1.5em;
+  font-weight: bold;">
+    <ion-col style="width:100%"></ion-col>
+    <ion-col style="width:100%; text-align: end; ">Kho: {{const_data?.data?.whscode}}</ion-col>
+  </ion-row>
+  <ion-row style="width: 100%;
+  padding-top: 17px;
+  padding-left: 17px;
+  margin: auto;
+  font-size: 1.5em;
+  font-weight: bold;">
+    <ion-col style="width:100%; text-align: start; ">Tên: {{const_data?.data?.cardname}}</ion-col>
+  </ion-row>
+  <ion-list style="overflow-y: scroll; background: transparent;">
+    <ion-label *ngIf="const_data?.data?.receiptDetails?.length > 0" style="background: transparent;">
+      <ion-item *ngFor="let item of const_data?.data?.receiptDetails">
+        <ion-col style="width:100%; background: rgba(255, 0, 0, 0);">
+          <ion-row style="width:100%;">
+            <ion-col style="width:100%">{{ item.itemname }}</ion-col>
+            <ion-col style="width:100%; text-align: end; ">{{ item.itemcode }}</ion-col>
+          </ion-row>
+          <ion-row style="width:100%;">
+            <ion-col style="width:100%">Số lượng</ion-col>
+            <ion-col style="width:100%; text-align: end; color: cornflowerblue;">{{ item?.quantity }}</ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-item>
+    </ion-label>
+  </ion-list>
+</ion-content>

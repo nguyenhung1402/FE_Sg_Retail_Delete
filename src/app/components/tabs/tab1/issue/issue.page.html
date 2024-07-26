@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{headerMenu}}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-buttons slot="primary">
+        <ion-button color="danger" (click)="openHistoryItem()">
+          <ion-icon name="reader-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-button color="danger" id="open-modal-item" (click)="openModal()">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!-- <img alt="" class="logo_bg" style="z-index: 1;" src="../assets/images/FTI-FULL.png"> -->
+  <form [formGroup]="formGroup" class="form" id="vendor-form">
+    <mat-form-field class="w-100" appearance="fill" id="vendor-option">
+      <mat-label>Mã</mat-label>
+      <input type="text" placeholder="Mã" aria-label="Number" matInput [formControl]="myControlCardCode"
+        [matAutocomplete]="auto" formControlName="cardcode">
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectionChange($event)">
+        <mat-option *ngFor="let option of filteredOptionsCardCode | async" [value]="option?.cardcode" #valuesinput>
+          <span>{{option?.cardcode}}</span> |
+          <small> {{option?.cardname}}</small>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field class="w-100">
+      <mat-label>Tên</mat-label>
+      <input matInput formControlName="cardname">
+    </mat-form-field>
+  </form>
+  <ion-list class="item">
+    <ion-item *ngFor="let item of const_data" style="--border-color: transparent">
+      <ion-avatar slot="start">
+        <img src="{{ item.image ? BASE_SERVERS+item.image : imgDefault }}" />
+      </ion-avatar>
+      <ion-col style="width:100%">
+        <ion-row class="itemCode" style="width:100%; padding-bottom: 0; margin-top: 12px;">
+          <p style="float: left; display: inline; width: 50%; text-align: start; margin-top: 5px; margin-bottom: 5px;">
+            {{ item.itemname }}</p>
+          <p style="float: right; display: inline; width: 50%; text-align: end; margin-top: 5px; margin-bottom: 5px;">{{
+            item.itemcode }}</p>
+        </ion-row>
+        <ion-row class="itemQuantity">
+          <p class="flex-1 text-left" style="margin-top:5px">Quantity: </p><ion-input
+            style="--padding-top:3px; --padding-start:10px" type="number" value="{{item.quantity}}" #quantity
+            id="quantity" (change)="total($event,quantity.value,item.itemcode)"></ion-input>
+        </ion-row>
+      </ion-col>
+    </ion-item>
+
+  </ion-list>
+
+
+
+  <ion-footer class="btn">
+    <!--(click)="downloadInvoice()"  -->
+    <!-- <ion-button id="open-modal" shape="round">
+      <ion-icon name="save"></ion-icon>&nbsp;<strong>Save</strong> 
+    </ion-button> -->
+    <button id="open-modal" shape="round" class="btn-save" mat-raised-button color="accent">Lưu</button>
+  </ion-footer>
+
+  <ion-modal trigger="open-modal">
+    <ng-template>
+      <ion-content>
+        <ion-toolbar>
+          <ion-title>Chọn kho cần xuất</ion-title>
+        </ion-toolbar>
+
+        <ion-list class="wearhouse" style="position: fixed; top: 30px; bottom: 35px; overflow-y: scroll; width:100%">
+          <ion-radio-group value="strawberries" #whscode>
+            <ion-item *ngFor="let whs of warehouse?.data">
+              <ion-label>{{whs.whsname}}</ion-label>
+              <ion-radio slot="end" value="{{whs.whscode}}"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+
+        <ion-button style="position: fixed; bottom: -3px; width: 100%;" (click)="save(whscode.value)">
+          Lưu
+        </ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

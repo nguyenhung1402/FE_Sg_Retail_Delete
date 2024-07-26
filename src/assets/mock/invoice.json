@@ -1,0 +1,172 @@
+[
+    {
+        "id": 1,
+        "invoiceno": "00000001",
+        "docdate": "30/12/2022",
+        "status": 1,
+        "details": [
+            {
+                "id": 1,
+                "itemcode": "10000001",
+                "itemname": "Coca-Cola",
+                "category": "one",
+                "uomgroup": "-1",
+                "instock": 20000,
+                "status": "true",
+                "fee": "10,000 VND",
+                "quantity": 1,
+                "price": 10000000,
+                "imagesURL": "../assets/images/coca.jpg"
+            },
+            {
+                "id": 2,
+                "itemcode": "10000004",
+                "itemname": "Mì quảng",
+                "category": "two",
+                "uomgroup": "-1",
+                "instock": 50,
+                "status": "false",
+                "quantity": 1,
+                "fee": "25,400 VND",
+                "price": 25400,
+                "imagesURL": "../assets/images/miquang.jpg"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "invoiceno": "00000002",
+        "docdate": "01/01/2023",
+        "status": 1,
+        "details": [
+            {
+                "id": 1,
+                "itemcode": "10000001",
+                "itemname": "Coca-Cola",
+                "category": "one",
+                "uomgroup": "-1",
+                "instock": 20000,
+                "status": "true",
+                "fee": "10,000 VND",
+                "quantity": 1,
+                "price": 10000000,
+                "imagesURL": "../assets/images/coca.jpg"
+            },
+            {
+                "id": 2,
+                "itemcode": "10000004",
+                "itemname": "Mì quảng",
+                "category": "two",
+                "uomgroup": "-1",
+                "instock": 50,
+                "status": "false",
+                "quantity": 1,
+                "fee": "25,400 VND",
+                "price": 25400,
+                "imagesURL": "../assets/images/miquang.jpg"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "invoiceno": "00000003",
+        "docdate": "23/02/2023",
+        "status": 1,
+        "details": [
+            {
+                "id": 1,
+                "itemcode": "10000001",
+                "itemname": "Coca-Cola",
+                "category": "one",
+                "uomgroup": "-1",
+                "instock": 20000,
+                "status": "true",
+                "fee": "10,000 VND",
+                "quantity": 1,
+                "price": 10000000,
+                "imagesURL": "../assets/images/coca.jpg"
+            },
+            {
+                "id": 2,
+                "itemcode": "10000004",
+                "itemname": "Mì quảng",
+                "category": "two",
+                "uomgroup": "-1",
+                "instock": 50,
+                "status": "false",
+                "quantity": 1,
+                "fee": "25,400 VND",
+                "price": 25400,
+                "imagesURL": "../assets/images/miquang.jpg"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "invoiceno": "00000004",
+        "docdate": "02/05/2023",
+        "status": 1,
+        "details": [
+            {
+                "id": 1,
+                "itemcode": "10000001",
+                "itemname": "Coca-Cola",
+                "category": "one",
+                "uomgroup": "-1",
+                "instock": 20000,
+                "status": "true",
+                "fee": "10,000 VND",
+                "quantity": 1,
+                "price": 10000000,
+                "imagesURL": "../assets/images/coca.jpg"
+            },
+            {
+                "id": 2,
+                "itemcode": "10000004",
+                "itemname": "Mì quảng",
+                "category": "two",
+                "uomgroup": "-1",
+                "instock": 50,
+                "status": "false",
+                "quantity": 1,
+                "fee": "25,400 VND",
+                "price": 25400,
+                "imagesURL": "../assets/images/miquang.jpg"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "invoiceno": "00000005",
+        "docdate": "31/12/2022",
+        "status": 1,
+        "details": [
+            {
+                "id": 1,
+                "itemcode": "10000001",
+                "itemname": "Coca-Cola",
+                "category": "one",
+                "uomgroup": "-1",
+                "instock": 20000,
+                "status": "true",
+                "fee": "10,000 VND",
+                "quantity": 1,
+                "price": 10000000,
+                "imagesURL": "../assets/images/coca.jpg"
+            },
+            {
+                "id": 2,
+                "itemcode": "10000004",
+                "itemname": "Mì quảng",
+                "category": "two",
+                "uomgroup": "-1",
+                "instock": 50,
+                "status": "false",
+                "quantity": 1,
+                "fee": "25,400 VND",
+                "price": 25400,
+                "imagesURL": "../assets/images/miquang.jpg"
+            }
+        ]
+    }
+]
