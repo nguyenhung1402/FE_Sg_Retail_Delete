@@ -44,6 +44,19 @@ const routes: Routes = [
     loadChildren: () => import('../../../components/tabs/tab1/business/business-add/business-add.module').then(m => m.BusinessAddPageModule)
   },
   {
+    path: 'staff/:id',
+    loadChildren: () => import('../../../components/tabs/tab1/staff/staff.module').then(m => m.staffPageModule),
+    data: { some_date: 'staff Partner' }
+  },
+  {
+    path: 'staff-details/:id',
+    loadChildren: () => import('../../../components/tabs/tab1/staff/staff-details/staff-details.module').then(m => m.staffDetailsPageModule)
+  },
+  {
+    path: 'staff-add',
+    loadChildren: () => import('../../../components/tabs/tab1/staff/staff-add/staff-add.module').then(m => m.staffAddPageModule)
+  },
+  {
     path: 'warehouse/:id',
     loadChildren: () => import('../../../components/tabs/tab1/warehouse/warehouse.module').then(m => m.WarehousePageModule),
     data: { some_date: 'Quản lý kho' }
@@ -98,6 +111,10 @@ const routes: Routes = [
   {
     path: 'baocaodoanhthutheo-nam/:id',
     loadChildren: () => import('../../tabs/tab1/charts/baocaodoanhthutheo-nam/baocaodoanhthutheo-nam.module').then( m => m.BaocaodoanhthutheoNamPageModule)
+  },
+  {
+    path: 'baocaodoanhthu-nhanvien/:id',
+    loadChildren: () => import('../../tabs/tab1/charts/baocaodoanhthu-nhanvien/baocaodoanhthu-nhanvien.module').then( m => m.BaocaodoanhthuNhanVienPageModule)
   },
   {
     path: 'baocao-nxt/:id',

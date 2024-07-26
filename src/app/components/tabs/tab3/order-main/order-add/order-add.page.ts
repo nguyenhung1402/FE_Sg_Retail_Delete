@@ -38,6 +38,7 @@ export class OrderAddPage implements OnInit {
   order_details: any = [];
   warehouse: any = {};
   const_bp: any = {};
+  const_staff: any = {};
   _nxt: any = {};
   const_data: any = {};
   currentUser: any = {};
@@ -47,13 +48,17 @@ export class OrderAddPage implements OnInit {
   API_NXT_WhsItem: string = '/viewnxt/whsitem';
   API_Order: string = '/order';
   API_BP: string = '/business';
+  API_Staff: string = '/staff';
   BASE_SERVERS: any = UrlConstants.BASE_SERVER + '/';
   imgDefault = '../../../../../../assets/images/imgdefault.jpeg';
   statusPrint: string = '';
 
   // autocomplete cardcode
   myControlCardCode = new FormControl('');
+  myControlStaffCode = new FormControl('');
   filteredOptionsCardCode: Observable<any[]> | undefined;
+  filteredOptionsStaffCode: Observable<any[]> | undefined;
+
 
   constructor(
     private _data: DataService,
@@ -71,6 +76,7 @@ export class OrderAddPage implements OnInit {
 
   ngOnInit(): void {
     this.loaddata_bp();
+    this.loaddata_staff();
     this.createForm1();
     this.createForm();
   }
@@ -96,9 +102,12 @@ export class OrderAddPage implements OnInit {
   createForm1() {
     this.formGroup1 = this.formBuilder.group({
       'cardcode': [null],
-      'cardname': [null]
+      'cardname': [null],
+      'staffcode': [null],
+      'staffname': [null],
     });
     this.formGroup1.controls['cardname'].disable();
+    this.formGroup1.controls['staffname'].disable();
   }
 
   loadDataTable() {
@@ -132,7 +141,26 @@ export class OrderAddPage implements OnInit {
   setDataBP(data: any) {
     this.const_bp = data;
     this.autocompateCardCode();
+    console.log(this.const_bp);
   }
+  loaddata_staff() {
+    this.Loading = false;
+    this._data.get(this.currentUser.ip + this.API_Staff).subscribe(x => {
+      // this.const_bp = x || [];
+      this.setDataStaff(x || []);
+      this.Loading = true;
+    }, (error) => {
+      this.Loading = true;
+      console.log(error);
+    });
+
+  }
+  setDataStaff(data: any) {
+    this.const_staff = data;
+    this.autocompateStaffCode();
+    console.log(this.const_staff);
+  }
+
 
   loadDataWarehouse() {
     this.Loading = false;
@@ -262,6 +290,9 @@ export class OrderAddPage implements OnInit {
     this.const_data.remarks = form.remarks;
     this.const_data.cardcode = this.myControlCardCode.value;
     this.const_data.cardname = this.formGroup1.getRawValue().cardname;
+    this.const_data.staffcode = this.myControlStaffCode.value;
+    this.const_data.staffname = this.formGroup1.getRawValue().staffname;
+
     this.const_data.total = totalValues == undefined || totalValues == null ? 0 : Number(totalValues.toString().replace(/,/g, ""));
     this.const_data.discount = discount == null || discount == undefined ? 0 : Number(discount);
 
@@ -279,7 +310,9 @@ export class OrderAddPage implements OnInit {
     this.const_data.refund = send == null || send == undefined ? 0 : Number(send.toString().replace(/,/g, ""));
     this.const_data.viewpayment = 'save'
     this.const_data.orderDetails = this.order_details;
-
+    console.log(this.const_data);
+    console.log(this.myControlStaffCode.value);
+    console.log(this.formGroup1.getRawValue().staffname);
     this._data.post(this.currentUser.ip + this.API_Order, this.const_data).subscribe(res => {
       this._data.showSaveSuccess();
     });
@@ -297,6 +330,8 @@ export class OrderAddPage implements OnInit {
     this.const_data.remarks = form.remarks;
     this.const_data.cardcode = this.myControlCardCode.value;
     this.const_data.cardname = this.formGroup1.getRawValue().cardname;
+    this.const_data.staffcode = this.myControlStaffCode.value;
+    this.const_data.staffname = this.formGroup1.getRawValue().staffname;
     this.const_data.total = totalValues == undefined || totalValues == null ? 0 : Number(totalValues.toString().replace(/,/g, ""));
     this.const_data.discount = discount == null || discount == undefined ? 0 : Number(discount);
 
@@ -316,7 +351,10 @@ export class OrderAddPage implements OnInit {
     this.const_data.refund = send == null || send == undefined ? 0 : Number(send.toString().replace(/,/g, ""));
     this.const_data.viewpayment = 'off'
     this.const_data.orderDetails = this.order_details;
-
+    console.log(this.myControlCardCode.value);
+    console.log(this.formGroup1.getRawValue().cardname);
+    console.log(this.myControlStaffCode.value);
+    console.log(this.formGroup1.getRawValue().staffname);
     this._data.post(this.currentUser.ip + this.API_Order, this.const_data).subscribe(res => {
       this._data.showSaveSuccess();
     });
@@ -353,10 +391,23 @@ export class OrderAddPage implements OnInit {
       startWith(''),
       map(state => (state ? this._filterCardCode(state) : this.const_bp.data.slice())),
     );
+    console.log(this.filteredOptionsCardCode);
+    console.log(this.const_bp.data);
+  }
+  autocompateStaffCode() {
+    this.filteredOptionsStaffCode = this.myControlStaffCode.valueChanges.pipe(
+      startWith(''),
+      map(state => (state ? this._filterStaffCode(state) : this.const_staff.data.slice())),
+    );
+   
   }
   private _filterCardCode(value: string): any[] {
     const filterValue = value.toLowerCase();
     return this.const_bp.data.filter((state: any) => state.cardname.toLowerCase().includes(filterValue));
+  }
+  private _filterStaffCode(value: string): any[] {
+    const filterValue = value.toLowerCase();
+    return this.const_staff.data.filter((state: any) => state.staffname.toLowerCase().includes(filterValue));
   }
   onSelectionChange($event: any) {
     const result = this.const_bp.data.find((x: any) => {
@@ -364,6 +415,13 @@ export class OrderAddPage implements OnInit {
     })
     this.formGroup1.controls["cardname"].setValue(result?.cardname);
     this.formGroup1.controls['cardname'].disable();
+  }
+  onSelectionChangeStaff($event: any) {
+    const result = this.const_staff.data.find((x: any) => {
+      return x.staffcode === $event.option.value
+    })
+    this.formGroup1.controls["staffname"].setValue(result?.staffname);
+    this.formGroup1.controls['staffname'].disable();
   }
 
 

@@ -91,7 +91,7 @@
 		<mat-tab label="Thanh toán">
 			<form [formGroup]="formGroup">
 				<mat-form-field class="w-100" appearance="fill" id="vendor-option">
-					<mat-label>Mã</mat-label>
+					<mat-label>Mã Khách Hàng</mat-label>
 					<input type="text" placeholder="Mã" aria-label="Number" matInput [formControl]="myControlCardCode"
 						[matAutocomplete]="auto" formControlName="cardcode">
 					<mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectionChange($event)">

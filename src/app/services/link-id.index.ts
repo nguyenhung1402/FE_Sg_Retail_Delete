@@ -5,6 +5,9 @@ export const home = {
     menuHome_BusinessParnet: 'centers/partner',
     menuHome_BusinessParnet_Detail: 'centers/tabs/tab1/business-details',
     menuHome_BusinessParnet_Add: 'centers/tabs/tab1/business-add',
+    menuHome_staffParnet: 'centers/partner',
+    menuHome_staffParnet_Detail: 'centers/tabs/tab1/staff-details',
+    menuHome_staffParnet_Add: 'centers/tabs/tab1/staff-add',
     menuHome_warehouse_details: 'centers/tabs/tab1/warehouse-details',
     menuHome_warehouse_add: 'centers/tabs/tab1/warehouse-add',
     menuHome_bin_details: 'centers/tabs/tab1/bin-details',
@@ -59,6 +62,7 @@ export const chart = {
     baocaonxt: 'centers/tabs/tab1/baocao-nxt',
     baocaotonghopnhapkho: 'centers/tabs/tab1/baocaotonghop-nhapkho',
     baocaotonghopxuatkho: 'centers/tabs/tab1/baocaotonghop-xuatkho',
+    baocaodoanhthunhanvien: 'centers/tabs/tab1/baocaodoanhthu-nhanvien',
 }
 export const order = {
     orderAdd: 'centers/tabs/tab3/order-add',

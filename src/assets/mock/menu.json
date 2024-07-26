@@ -55,5 +55,13 @@
         "position": 7,
         "url": "centers/tabs/tab1/charts",
         "img": "reports.jpg"
+    },
+    {
+        "ID": 8,
+        "title": "Nhân viên",
+        "icon": "map",
+        "position": 8,
+        "url": "centers/tabs/tab1/staff",
+        "img": "staff.jpg"
     }
 ]

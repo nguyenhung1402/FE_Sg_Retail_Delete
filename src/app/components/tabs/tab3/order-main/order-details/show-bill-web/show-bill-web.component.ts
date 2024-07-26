@@ -70,6 +70,7 @@ export class ShowBillWebComponent implements OnInit {
   }
   setValueConfigSettings(data: any) {
     this.configsetting = data?.data[0];
+    console.log(this.currentUser.username)
   }
 
   cancel() {

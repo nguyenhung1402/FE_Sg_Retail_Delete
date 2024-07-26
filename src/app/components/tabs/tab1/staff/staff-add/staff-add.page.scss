@@ -1,0 +1,80 @@
+.text-center {
+    text-align: center;
+}
+
+.text-color {
+    color: blueviolet;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+#vendor-option {
+    ::ng-deep.mat-form-field-flex {
+        background: white !important;
+        padding: 0 !important;
+    }
+}
+
+.display-flex-content {
+    display: flex;
+    flex-direction: row;
+
+    .input-search {
+        padding-bottom: 15px;
+        margin-right: 7px;
+    }
+
+    .icon-search {
+        margin: 8px 15px 0px 0px
+    }
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+.color-text {
+    color: #666666;
+    font-size: 14px;
+}
+
+
+.color-text {
+    color: #666666;
+    font-size: 14px;
+}
+
+.padding-15 {
+    padding: 0px 15px;
+}
+
+.example-viewport {
+    height: 100%;
+    width: 100%;
+}
+
+.example-item {
+    height: 50px;
+}
+
+.avata{
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+ion-item{
+    margin-top: 10px;
+    &:last-child{
+        margin-bottom: 50px;
+    }
+}

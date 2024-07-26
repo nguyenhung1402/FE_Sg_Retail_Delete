@@ -171,6 +171,9 @@ export class ChartsPage implements OnInit {
     if (itemId == 6) {
       this.navCtrl.navigateForward([chart.baocaotonghopxuatkho, itemId]);
     }
+    if (itemId == 7) {
+      this.navCtrl.navigateForward([chart.baocaodoanhthunhanvien, itemId]);
+    }
   }
 }
 

@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Báo cáo doanh thu nhân viên</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ion-padding">
+    <!-- <p>
+      <mat-form-field appearance="fill" class="w-100" id="vendor-option">
+        <mat-label>Năm</mat-label>
+        <mat-select (selectionChange)="changeDate($event)">
+          <mat-option *ngFor="let food of const_year?.data" [value]="food.name2">
+            {{food.name2}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </p> -->
+    <mat-tab-group>
+      <mat-tab label="Bảng">
+        <div>
+          <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!-- Total Column -->
+            <!-- <ng-container matColumnDef="no">
+              <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.no}} </mat-cell>
+            </ng-container> -->
+            
+            <ng-container matColumnDef="no">
+              <mat-header-cell *matHeaderCellDef> Mã nhân viên </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.staffcode}} </mat-cell>
+            </ng-container>
+
+            <!-- Total Column -->
+            <ng-container matColumnDef="total">
+              <mat-header-cell *matHeaderCellDef> Tên nhân viên </mat-header-cell>
+              <mat-cell *matCellDef="let element" style="justify-content: end;"> {{element.staffname}} </mat-cell>
+            </ng-container>
+
+            <!-- Discount Column -->
+            <ng-container matColumnDef="discount">
+              <mat-header-cell *matHeaderCellDef> Doanh thu </mat-header-cell>
+              <mat-cell *matCellDef="let element" style="justify-content: end;"> {{element.total}} </mat-cell>
+            </ng-container>
+
+            <!-- <ng-container matColumnDef="groupHeader">
+              <mat-cell *matCellDef="let group" style="font-weight: bold;">{{group.group}}</mat-cell>
+            </ng-container> -->
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+            <!-- <mat-row *matRowDef="let row; columns: ['groupHeader']; when: isGroup"> </mat-row> -->
+
+          </mat-table>
+        </div>
+      </mat-tab>
+     
+    </mat-tab-group>
+
+  </div>
+</ion-content>
+
+
+<div bgcolor="#000000" *ngIf="!Loading">
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+  </div>
+</div>

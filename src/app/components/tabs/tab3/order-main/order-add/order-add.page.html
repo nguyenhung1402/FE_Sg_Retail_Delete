@@ -100,7 +100,43 @@
           <mat-label>Tên</mat-label>
           <input matInput formControlName="cardname">
         </mat-form-field>
+
+
+        <mat-form-field class="w-100" appearance="fill" id="vendor-option">
+          <mat-label>Mã Nhân Viên</mat-label>
+          <input type="text" placeholder="Mã" aria-label="Number" matInput [formControl]="myControlStaffCode"
+            [matAutocomplete]="auto_1" formControlName="staffcode">
+          <mat-autocomplete #auto_1="matAutocomplete" (optionSelected)="onSelectionChangeStaff($event)">
+            <mat-option *ngFor="let option_1 of filteredOptionsStaffCode | async" [value]="option_1?.staffcode" #valuesinput>
+              <span>{{option_1?.staffcode}}</span> |
+              <small> {{option_1?.staffname}}</small>
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+    
+        <mat-form-field class="w-100">
+          <mat-label>Tên Nhân Viên</mat-label>
+          <input matInput formControlName="staffname">
+        </mat-form-field>
       </form>
+      <!-- <form [formGroup]="formGroup1" class="form" id="vendor-form">
+        <mat-form-field class="w-100" appearance="fill" id="vendor-option">
+          <mat-label>Mã Nhân viên</mat-label>
+          <input type="text" placeholder="Mã" aria-label="Number" matInput [formControl]="myControlCardCode"
+            [matAutocomplete]="auto" formControlName="cardcode">
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectionChange($event)">
+            <mat-option *ngFor="let option of filteredOptionsCardCode | async" [value]="option?.cardcode" #valuesinput>
+              <span>{{option?.cardcode}}</span> |
+              <small> {{option?.cardname}}</small>
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+    
+        <mat-form-field class="w-100">
+          <mat-label>Tên Nhân Viên</mat-label>
+          <input matInput formControlName="cardname">
+        </mat-form-field>
+      </form> -->
       <ion-row style="padding: 15px 10px">
         <ion-col style="width:50%">Thành tiền</ion-col>
         <ion-col style="width:50%; text-align: end;">
