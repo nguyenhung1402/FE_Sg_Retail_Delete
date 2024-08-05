@@ -5,10 +5,10 @@ export class UrlConstants {
   // public static BASE_CLIENT = 'http://113.161.84.61:1600/api/v1';
   // public static BASE_SERVER = 'http://113.161.84.61:1600/api/v1';
 
-  // public static BASE_CLIENT = "http://42.117.3.105:1604/api/v1";
-  // public static BASE_SERVER = "http://42.117.3.105:1604/api/v1";
-  public static BASE_CLIENT = "http://127.0.0.1:1604/api/v1";
-  public static BASE_SERVER = "http://127.0.0.1:1604/api/v1";
+  public static BASE_CLIENT = "http://42.117.3.105:1704/api/v1";
+  public static BASE_SERVER = "http://42.117.3.105:1704/api/v1";
+  // public static BASE_CLIENT = "http://192.168.50.193:1604/api/v1";
+  // public static BASE_SERVER = "http://192.168.50.193::1604/api/v1";
 
   // public static BASE_CLIENT = 'http://192.168.1.105:1600/api/v1';
   // public static BASE_SERVER = 'http://192.168.1.105:1600/api/v1';
